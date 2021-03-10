@@ -791,6 +791,13 @@ function addListeners() {
 	return;
 }
 
+// alternative d3 load json func
+var loadjson = (path) => {
+	d3.json(path, function(data) {
+		return(data);
+	});
+};
+
 //jquery
 $(document).ready(function() {
     
