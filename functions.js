@@ -559,7 +559,9 @@ function popover(c) {
 
 function leftSlide() {
 	console.log("leftslide");
-	$("#leftPane").show();
+	//does not work in production
+	//$("#leftPane").show();
+	
 	//slide pane from left (map is actually just being resized)
 	$("#mapid").animate({right:"60%", width: "60%"}, 500, 'swing');
 	//call the recenter map function, time it so that it animates back after the slide is complete

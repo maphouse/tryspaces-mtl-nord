@@ -191,7 +191,8 @@ function exitX() {
 	setTimeout(function(){
 		recenterMap();
 	}, 700);
-	$( "#leftPane").hide();
+	//does not work in production
+	//$( "#leftPane").hide();
 };
 
 //this leaflet-sourced function is called after jquery map click slide from left
