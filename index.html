@@ -13,33 +13,43 @@
 		<!-- link to leaflet scripts -->
 		<script type="text/javascript" src="leaflet/leaflet.js"></script>
 		<!-- link to jquery for geojson layer -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<!-- custom js and jquery scripts -->
-		<script src="functions.js"></script>
-		<!-- load geoJson Data -->
-		<script src="data.js"></script>
+		<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		
+		<!-- load only needed js vars for passing to launchmap function-->
+		<script async type="text/javascript" src="initial_functions.js" defer></script>
+		
+		
 		<!-- so that IG works properly
 		<script async="" defer="defer" src="//platform.instagram.com/en_US/embeds.js"></script>
 		-->
 		<!-- jquery ui -->
-		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+		<script async src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
+		
 	</head>	
 	<body>
 		<ul class="navbar">
-			<li class="li-nav" id="title"><h1>Perspectives sur Montréal - tryspaces [Demo]</h1></li>
+			<li class="li-nav" id="title"><h1>chemins x croisés</h1></li>
+			
+			<!--<li class="li-nav"><a href="#12" onclick='fetchJsonObjectFromUrl(13)'>demo 13</a></li>-->
+			
 			<!--
-			<li class="li-nav"><a href="#12" onclick='fetchJsonObjectFromUrl(13)'>demo 13</a></li>
-			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank">À propos</a></li>
-			-->
 			<li class="li-nav">
 				<div id="searchBar" class="ui-widget">
 					<label for="tags"></label>
 					<input id="tags" placeholder="Rechercher un lieu">
 				</div>
 			</li>
+			-->
+			<select class="li-nav" name="mapdropdown" id="mapdropdown" onChange="launchMap(this.value);">
+					<option value="map0">Sélectionner une carte</option>
+					<option value='options1'>Images</option>
+					<option value='options2'>Sons</option>
+					<option value='options3'>Tous</option>
+			</select>
+			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank">À propos</a></li>
 		</ul>
 		
-		<div id="leftPane" class="scroller grid-container">
+		<div id="leftPane" class="scroller grid-container show">
 		</div>
 		
 		<div id="mapid">
@@ -49,40 +59,11 @@
 			</div>
 		</div>
 		
-		<div id="legend"></div>
-		
 		<footer>
 			<p></p>
 		</footer>
 	
 	</body>
-
-	<script>
-		
-		//function launchMap() {
-			//initialize map
-			var mymap = L.map('mapid', {
-				center: [45.592297, -73.634139],
-				zoom: 15,
-				//maxBounds: mybounds,
-				//maxBoundsViscosity: 0.2,
-				layers: [satellite]
-			});
-			
-			// parse json object (var geojsonData, located in data.js) and turn into loadable layer
-			var geojsonLayer_1 = L.geoJSON(geojsonData, {style: styleAll, pointToLayer: stylePoints, onEachFeature: displayFeatureProperties});
-			
-			//add layers to map
-			geojsonLayer_1.addTo(mymap);// add json element to map
-			var lcontrol = L.control.layers(baseLayers,overlays,{position:'topleft'});
-			lcontrol.addTo(mymap);
-			//mentalmap_color.addTo(mymap);
-			mentalmap_bw.addTo(mymap);
-			//lcontrol.addTo(mymap);// add basemap legend
-		//}
-
-
-	</script>
 <!-- resources
 for getting started
 http://leafletjs.com/examples/quick-start/

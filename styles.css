@@ -43,6 +43,7 @@ body {
 	--content-gap: 1em;
 	--item-gap: 0.2em;
 	--default-item-color: rgb(200,200,200);
+	--navheight: 5vh;
 	background-color: var(--main-bg-color);
     box-sizing: border-box;
     z-index: 1;
@@ -55,9 +56,9 @@ body {
 h1 {
 	font-family: 'Work Sans', sans-serif;
 	color: var(--nav-title-color);
-	font-size: calc(var(--font-multiplier) * 1.37em);
+	font-size: calc(var(--font-multiplier) * 1.4em);
 	font-weight: bold;
-	padding: 10px 0px 0px 0px;
+	padding: 15px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	text-align: center;
 	line-height: normal;
@@ -226,7 +227,7 @@ img + .annotationContainer {
 
 /*when audio, push annotation container lower so they don't overlap*/
 video + .annotationContainer {
-	bottom: 50px;
+	bottom: 30%;
 }
 
 #box {
@@ -340,7 +341,7 @@ video + .annotationContainer {
 span.path_tag {
 	font-family: 'Work Sans', sans-serif;
 	color: var(--button-color);
-	font-size: calc(var(--font-multiplier) * 1.2em);
+	font-size: calc(var(--font-multiplier) * 1em);
 	font-weight: bold;
 	border-radius: 5px;
 	display: inline-block;
@@ -450,7 +451,7 @@ ul.navbar{
     padding: 0;
     overflow: hidden;
 	display: block;
-	height: 7%;
+	height: calc(var(----navheight));
 }
 
 .li-nav {
@@ -462,8 +463,8 @@ li a {
 	font-size: calc(var(--font-multiplier) * 1.2em);
     display: block;
     color: var(--link-color);
-    padding: 20px 16px;
     text-decoration: none;
+	padding: calc(var(--navheight)/2);
 }
 
 a {
@@ -487,7 +488,18 @@ a:hover {
 }
 
 #searchBar {
-    padding: 19px 16px;
+    padding: calc(var(--navheight)/2);
+}
+
+#mapdropdown {
+	font-family: 'Work Sans', sans-serif;
+	font-size: calc(var(--font-multiplier) * 0.9em);
+    display: block;
+    color: var(--nav-title-color);
+    text-decoration: none;
+	margin: calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)*2);
+	width: 14%;
+	float: left;
 }
 
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
@@ -552,6 +564,11 @@ a:hover {
   animation: fadeIn 0.5s;
 }
 */
+
+.show {
+  visibility: visible;
+}
+
 .contentContainer .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.5s;

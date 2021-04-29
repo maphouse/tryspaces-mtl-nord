@@ -1,3 +1,5 @@
+var mymap;
+
 //onload, if url contains reference to json object, make that object appear in "leftPane" div
 //will not properly push id to url if id arg is passed. id arg is only used for development so far
 function fetchJsonObjectFromUrl(id) {
@@ -9,13 +11,15 @@ function fetchJsonObjectFromUrl(id) {
 		var fetchedId = id;
 		console.log("fetchedid: ",fetchedId)
 	}
-	for (var i = 0; i < geojsonData.features.length; i++) {
-		if (fetchedId == geojsonData.features[i].properties.id[0]) {
-			pushToHtml(geojsonData.features[i]);
-			zoom(geojsonData.features[i], mymap, true);
-			return;
-		}
-	};
+	if (fetchedId){
+		for (var i = 0; i < geojsonData.features.length; i++) {
+			if (fetchedId == geojsonData.features[i].properties.id[0]) {
+				pushToHtml(geojsonData.features[i]);
+				zoom(geojsonData.features[i], mymap, true);
+				return;
+			}
+		};
+	}
 };
 
 //functions that are not necessary for loading map (but related)
@@ -247,8 +251,9 @@ function pushIDtoURL(feature, map) {
 	*/
 	
 	location.href = uri;
-	console.log(location.href)
+	console.log('url: ',uri)
 }
+
 
 function styleAll(feature, latlng) {
 	
@@ -475,6 +480,7 @@ function find_path(a){
 };
 
 function zoom(feature, map, slidePane){
+	var fitBounds = {maxZoom:16.5, animate: true, duration: 2, easeLinearity: 0.25};
 	if(map != null){
 		myMap = map;
 		if(feature.geometry.type=='Point'){
@@ -490,7 +496,6 @@ function zoom(feature, map, slidePane){
 			//console.log(lat,lng)
 			var bounds = [[feature.geometry.coordinates[0][1],feature.geometry.coordinates[0][0]],[feature.geometry.coordinates[1][1], feature.geometry.coordinates[1][0]]]
 			console.log(bounds)
-			var fitBounds = {maxZoom:16.5};
 			myMap.flyToBounds(bounds,fitBounds);
 		}
 		if(feature.geometry.type=='Polygon'){
@@ -506,7 +511,6 @@ function zoom(feature, map, slidePane){
 			var maxLat = Math.max.apply(Math, lats);
 			var maxLng = Math.max.apply(Math, lngs);
 			var bounds = [[minLat,minLng],[maxLat,maxLng]];
-			var fitBounds = {maxZoom:16.5};
 			myMap.flyToBounds(bounds,fitBounds);
 		}
 		if(feature.geometry.type=='MultiPolygon'){
@@ -522,7 +526,6 @@ function zoom(feature, map, slidePane){
 			var maxLat = Math.max.apply(Math, lats);
 			var maxLng = Math.max.apply(Math, lngs);
 			var bounds = [[minLat,minLng],[maxLat,maxLng]];
-			var fitBounds = {maxZoom:16.5};
 			myMap.flyToBounds(bounds,fitBounds);
 		}
 		//myMap.setView([lat, lng], 18, {animation: true});
@@ -530,107 +533,11 @@ function zoom(feature, map, slidePane){
 		console.log("zoomed on ", feature)
 	};
 	
-	
-	//delay leftSlide until some zooming animation ihas completed
-	if (slidePane === true){
-		setTimeout(function(){
-			leftSlide();
-			console.log("leftSlide");
-		}, 700);
-	}
+	leftSlide();
+
 }
 
-//this leaflet-sourced function is called after jquery map click slide from left
-function recenterMap() { 
-	mymap.invalidateSize({animate: true});
-}
 
-//Layers
-//var mybounds = L.latLngBounds([45.404355, -73.955570], [45.702860, -73.476158]);
-	
-var layerUrl = 'https://api.mapbox.com/styles/v1/{user}/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
-var imageUrl_bw = 'drawing-4_white.png';
-var imageUrl_color = 'drawing-4_coloured.png';
-var imageBounds = [[45.6023716076707473, -73.6510221845416027],[45.5831569024521457, -73.6163640421708720]];
-
-//var imgOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(mymap);// overlay image on basemap
-
-
-var satellite = L.tileLayer(
-	layerUrl, {
-		id: 'MapID',
-		attribution: '',
-		maxZoom: 19,
-		minZoom: 0,
-		opacity: 0,
-		user: 'treebrain',
-		id: 'cj7f0urc62azd2slck52d7iu5', //satellite
-		accessToken: 'pk.eyJ1IjoidHJlZWJyYWluIiwiYSI6ImNpd2N4a2tjcjAxeHEyeW9iamtna2drcGMifQ.rNAIi-ocVjzPImGpnmTbyw'
-	}),
-	labels = L.tileLayer(layerUrl, {
-		id: 'MapID',
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a> | <a href="http://www.openstreetmap.org/#map=7/45.356/-73.586">améliorez cette carte / improve this map</a>',
-		maxZoom: 19,
-		minZoom: 13,
-		user: 'treebrain',
-		id: 'cj7f0l91m2bz72rn34u0ewqwu', //satellite-streets
-		accessToken: 'pk.eyJ1IjoidHJlZWJyYWluIiwiYSI6ImNpd2N4a2tjcjAxeHEyeW9iamtna2drcGMifQ.rNAIi-ocVjzPImGpnmTbyw'
-	}),
-	standard = L.tileLayer(layerUrl, {
-		id: 'MapID',
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a> | <a href="http://www.openstreetmap.org/#map=7/45.356/-73.586">améliorez cette carte / improve this map</a>',
-		maxZoom: 19,
-		minZoom: 13,
-		user: 'treebrain',
-		id: 'cj7c8azq583cw2rqibncn3bu9', //standard
-		accessToken: 'pk.eyJ1IjoidHJlZWJyYWluIiwiYSI6ImNpd2N4a2tjcjAxeHEyeW9iamtna2drcGMifQ.rNAIi-ocVjzPImGpnmTbyw'
-	}),
-	normal = L.tileLayer(layerUrl, {
-		id: 'MapID',
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a> | <a href="http://www.openstreetmap.org/#map=7/45.356/-73.586">améliorez cette carte / improve this map</a>',
-		maxZoom: 19,
-		minZoom: 13,
-		user: 'treebrain',
-		id: 'cj5h12qez3r4j2rpeqpnicyz9', //AmplifierCdN
-		accessToken: 'pk.eyJ1IjoidHJlZWJyYWluIiwiYSI6ImNpd2N4a2tjcjAxeHEyeW9iamtna2drcGMifQ.rNAIi-ocVjzPImGpnmTbyw'
-	}),
-	normal2 = L.tileLayer(layerUrl, {
-		id: 'MapID',
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a> | <a href="http://www.openstreetmap.org/#map=7/45.356/-73.586">améliorez cette carte / improve this map</a>',
-		maxZoom: 19,
-		minZoom: 13,
-		user: 'mapbox',
-		id: 'streets-v11', //mapbox 2021 default streets
-		accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA'
-	}),
-	CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-		subdomains: 'abcd',
-		maxZoom: 19,
-		minZoom: 13
-	}),
-	mentalmap_bw = L.imageOverlay(imageUrl_bw,
-		imageBounds
-	),
-	mentalmap_color = L.imageOverlay(imageUrl_color,
-		imageBounds
-	);
-
-
-
-var baseLayers = {
-	"Fond blanc": satellite
-	,"Satellite avec étiquettes": labels
-	,"Classique": standard
-	,"Normal": normal
-	,"Mapbox Streets": normal2
-	,"CartoDB": CartoDB_Positron
-};
-
-var overlays = {
-	"Carte mentale n&b": mentalmap_bw
-	,"Carte mentale coloré": mentalmap_color
-};
 
 
 /* popup function adapted from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup
@@ -648,23 +555,11 @@ function popover(c) {
 	popover.children[1].classList.toggle("show");
 }
 
-//exit leftpane function
-function exitX() {
-	console.log("exiting pane");
-	$("#mapid").animate({right:"0px", width: "100%"}, 500, 'swing');
-	
-	setTimeout(function(){
-		recenterMap();
-	}, 1000);
-	
-	console.log("map recentered");
-	//zoom out to map extent
-	//reset global path var
-	path = 0;
-};
+
 
 function leftSlide() {
 	console.log("leftslide");
+	$("#leftPane").show();
 	//slide pane from left (map is actually just being resized)
 	$("#mapid").animate({right:"60%", width: "60%"}, 500, 'swing');
 	//call the recenter map function, time it so that it animates back after the slide is complete
@@ -688,7 +583,7 @@ function addTopListeners() {
 			console.log("item ", e.target.className, " was clicked!");
 		}
 		if (e.target && e.target.matches(".theme_tag")) {
-			styleFeatures(geojsonLayer_1, e.target);
+			styleFeatures(geojsonLayer, e.target);
 			console.log("item ", e.target.className, " was clicked!");
 		}
 		if (e.target && e.target.matches(".path_tag")) {
@@ -707,7 +602,7 @@ function addTopListeners() {
 	
 	document.getElementById("legend").addEventListener("click", function (e){
 		if (e.target && e.target.matches(".theme_tag")) {
-			styleFeatures(geojsonLayer_1, e.target);
+			styleFeatures(geojsonLayer, e.target);
 			console.log("item ", e.target.className, " was clicked!");
 		}
 		if (e.target && e.target.matches(".path_tag")) {
