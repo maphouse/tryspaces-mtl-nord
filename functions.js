@@ -426,6 +426,8 @@ function selectPath(element) {
 			//highlight nav buttons
 			document.querySelector(".prevPlace").classList.remove('highlight');
 			document.querySelector(".nextPlace").classList.remove('highlight');
+			//document.getElementById("leftPane").classList.remove('highlight');
+			//document.querySelector(".scroller").classList.remove('highlight');
 			
 			//show all content
 			$(".contentContainer").show();
@@ -449,6 +451,9 @@ function selectPath(element) {
 			//highlight nav buttons
 			document.querySelector(".prevPlace").classList.add('highlight');
 			document.querySelector(".nextPlace").classList.add('highlight');
+			document.getElementById("leftPane").classList.add('highlight');
+			//document.getElementById("leftPane").classList.add('highlight');
+			//document.querySelector(".scroller").classList.add('highlight');
 			
 			//show only content related to clicked path tag
 			$( ".contentContainer."+element.firstChild.data).show();
@@ -533,7 +538,9 @@ function zoom(feature, map, slidePane){
 		console.log("zoomed on ", feature)
 	};
 	
-	leftSlide();
+	if (document.getElementById("leftPane").classList.contains("hide")) {
+		leftSlide();
+	}
 
 }
 
@@ -559,8 +566,8 @@ function popover(c) {
 
 function leftSlide() {
 	console.log("leftslide");
-	//does not work in production
 	//$("#leftPane").show();
+	document.getElementById("leftPane").classList.toggle("hide");
 	
 	//slide pane from left (map is actually just being resized)
 	$("#mapid").animate({right:"60%", width: "60%"}, 500, 'swing');

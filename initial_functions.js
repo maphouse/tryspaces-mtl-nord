@@ -75,7 +75,7 @@ var overlays = {
 
 //load map options
 
-var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:16,bottomLeft:[45.58192974974479, -73.65249050375052],topRight:[45.603733052315095, -73.6152227495604],baselayer:whiteTiles,geojson:"data_images.js",overlays:[mentalmap_color]}
+var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:16,bottomLeft:[45.58192974974479, -73.65249050375052],topRight:[45.603733052315095, -73.6152227495604],baselayer:whiteTiles,geojson:"data_images.js",overlays:[mentalmap_bw]}
 var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_sons.js"}
 var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
 
@@ -132,6 +132,7 @@ function launchMap(options) {
 	
 	console.log("map launched");
 	location.href = '#';
+	document.getElementById('mapid').classList.remove('scroller2');
 	exitX();
 	
 	function loadMap(){
@@ -172,6 +173,10 @@ function launchMap(options) {
 	loadjscssfile(window[options].geojson,window[options].geojson, "js");
 	loadjscssfile("functions","functions.js", "js");
 	
+	if (!document.getElementById("splash-grid").classList.contains("hide")) {
+		document.getElementById("splash-grid").classList.toggle("hide");
+	}
+	
 	setTimeout(function(){
 		loadMap();
 	},100);
@@ -191,8 +196,11 @@ function exitX() {
 	setTimeout(function(){
 		recenterMap();
 	}, 700);
-	//does not work in production
 	//$( "#leftPane").hide();
+	if (!document.getElementById("leftPane").classList.contains("hide")) {
+		document.getElementById("leftPane").classList.toggle("hide");
+	}
+		
 };
 
 //this leaflet-sourced function is called after jquery map click slide from left

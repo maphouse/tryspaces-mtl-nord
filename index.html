@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Carte Tryspaces</title>
+		<title>Une journée dans le Nord</title>
 		<link rel="shortcut icon" href="map.ico" type="image/x-icon">
 		<!-- jquery ui styles -->
 		<link rel="stylesheet" href="jquery_style.css">	
@@ -25,10 +25,10 @@
 		<!-- jquery ui -->
 		<script async src="https://code.jquery.com/ui/1.12.0/jquery-ui.js" integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" crossorigin="anonymous"></script>
 		
-	</head>	
+	</head>
 	<body>
 		<ul class="navbar">
-			<li class="li-nav" id="title"><h1>chemins x croisés</h1></li>
+			<li class="li-nav" id="title"><h1><a href="index.html">Une journée dans le Nord</a></h1></li>
 			
 			<!--<li class="li-nav"><a href="#12" onclick='fetchJsonObjectFromUrl(13)'>demo 13</a></li>-->
 			
@@ -41,22 +41,51 @@
 			</li>
 			-->
 			<select class="li-nav" name="mapdropdown" id="mapdropdown" onChange="launchMap(this.value);">
-					<option value="map0">Sélectionner une carte</option>
-					<option value='options1'>Images</option>
-					<option value='options2'>Sons</option>
-					<option value='options3'>Tous</option>
+					<option value="map0" selected="selected" disabled>Sélectionner une carte</option>
+					<option value='options1'>Affichages Instas</option>
+					<option value='options2'>Parcours commentés</option>
+					<!--<option value='options3'>Tous</option>-->
 			</select>
-			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank">À propos</a></li>
+			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank"><img id="logo" src="trymontreal.png"></a></li>
 		</ul>
 		
-		<div id="leftPane" class="scroller grid-container show">
+		<div id="leftPane" class="scroller grid-container hide">
 		</div>
 		
-		<div id="mapid">
+		<div id="mapid" class="scroller2">
+			<div id="splash-grid" class='splash-grid-container'>
+				<div id='splash-item1'>
+					<h2>
+						Bienvenue dans « Une journée dans le Nord », un projet cartographique permettant de rentrer dans le quotidien de cinq jeunes âgés de 18 à 23 ans et vivant dans le secteur Nord-Est de l’arrondissement de Montréal-Nord.<br><br>
+						Pendant un peu plus d’une année nous nous sommes rencontrées pour mener une recherche collaborative. Le constat à l’initiative de ce projet était que dans la littérature scientifique comme dans les médias, la(les) jeunesse(s) nord-montréalaise est trop souvent associée à une jeunesse transgressive.<br><br>En leur donnant la possibilité de s’exprimer sur leur quotidien et leur territoire: on a voulu passer un autre message : le leur.<br><br>
+					</h2>
+				</div>
+				<div id='splash-item2'>
+					<h2>
+						Deux cartes complémentaires forment donc ce projet, une carte dessinée par l’un d'eux permet de parcourir des lieux photographiés par les jeunes sur Instagram lors de nos ateliers visant à raconter leur vécu à travers ce média.<br><br>
+						Et une cartographie web permettant de suivre leur discours au gré d’une marche commentée enregistrée sur un cellulaire.<br><br>
+						Pour naviguer les cartes, vous devez utiliser les flèches situées en haut à droite de l’écran pour changer de lieu, vous pouvez également choisir de naviguer le quartier à travers le parcours d'un seul des personnages en cliquant sur son pseudonyme.<br><br>
+					</h2>
+				</div>
+				<div id='splash-item3'>
+					<h2>
+						Ce projet a été réalisé au sein du partenariat Tryspaces par les chercheurs Violaine Jolivet, Célia Bensiali-Hadaud et Chakib Khelifi.<br>La plateforme cartographique présente a été conçue et réalisée par Emory Shaw. Elle mets en lumière des matériaux audios, visuels et narratifs colligés au cours du projet et sélectionnés par les chercheurs.
+					</h2>
+				</div>
+				<div id='splash-item4'>
+				</div>
+				<div id='splash-item5'>
+				</div>	
+					
+				</h2>
+			</div>
+		<!-- remove floating path legend
 			<div id='parent-div' class='some-div'>
 				<div class='some-div' id='legend'>
 				</div>
 			</div>
+		-->
+	
 		</div>
 		
 		<footer>

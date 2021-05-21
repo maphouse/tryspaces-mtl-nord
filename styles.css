@@ -43,7 +43,7 @@ body {
 	--content-gap: 1em;
 	--item-gap: 0.2em;
 	--default-item-color: rgb(200,200,200);
-	--navheight: 5vh;
+	--navheight: 10vh;
 	background-color: var(--main-bg-color);
     box-sizing: border-box;
     z-index: 1;
@@ -58,7 +58,6 @@ h1 {
 	color: var(--nav-title-color);
 	font-size: calc(var(--font-multiplier) * 1.4em);
 	font-weight: bold;
-	padding: 15px 0px 0px 0px;
 	margin: 0px 0px 0px 0px;
 	text-align: center;
 	line-height: normal;
@@ -104,6 +103,75 @@ footer {
     position: absolute;
     bottom: 0px;
     left: 0px; 
+}
+
+/* splash page */
+
+.splash-grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto auto auto;
+	/*grid-auto-rows: auto;*/
+	border-bottom: 20px solid var(--main-bg-color);
+	width: 100%;
+	justify-items: center;
+	grid-row-gap: 2vh;
+	grid-column-gap: 3vw;
+	margin: 15px;
+}
+
+#splash-grid {
+	
+}
+
+#splash-item1 {
+	grid-column: 1 / span 2;
+	grid-row: 1 / span 1;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: var(--path-color);
+}
+
+#splash-item2 {
+	grid-column: 1 / span 2;
+	grid-row: 2 / span 1;
+	padding: 15px;
+	background-color: var(--caption-color);
+	border-radius: 10px;
+}
+
+#splash-item3 {
+	grid-column: 1 / span 5;
+	grid-row: 3 / span 1;
+	padding: 15px;
+	background-color: var(--path-color);
+	border-radius: 10px;
+}
+/*
+#splash-item4  {
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 2;
+	padding: 15px;
+	background-image: url('cover_1.jpg');
+	background-position: center;
+	width: 100%;
+	border-radius: 10px;
+}
+*/
+#splash-item5  {
+	grid-column: 3 / span 3;
+	grid-row: 1 / span 2;
+	padding: 15px;
+	/*background-color: var(--path-color);*/
+	background-image: url('cover_2.jpg');
+	background-position: center;
+	width: 100%;
+	border-radius: 10px;
+}
+
+
+#cover1 {
+	height: 75vh;
 }
 
 /* left pane */
@@ -283,11 +351,16 @@ video + .annotationContainer {
 	overflow-x: hidden;
 }
 
+
 /* firefox-only scrollbar class to use in divs */
 .scroller {
-	overflow-y: scroll;
 	scrollbar-color: var(--default-item-color) var(--main-bg-color);
 	scrollbar-width: thin;
+}
+.scroller2 {
+	scrollbar-color: var(--default-item-color) var(--main-bg-color);
+	scrollbar-width: thin;
+	overflow-y: scroll;
 }
 /* chrome default scrollbar styles */
 ::-webkit-scrollbar {
@@ -428,7 +501,6 @@ span.path_tag:hover {
 	grid-column: 1/-1;
 	height: 5em;
 	padding: 0px 0px 0px 0px;
-	background-color: var(--main-bg-color);
 	/*background-image: linear-gradient(to bottom, var(--main-bg-color) 90%, rgba(255,244,219,0));*/
 }
 
@@ -440,7 +512,7 @@ span.path_tag:hover {
 	/*position: absolute;*/
 	left: 0px;
     z-index: 1;
-	border-top-right-radius: 150px;
+	border-top-right-radius: 20px;
 }
 
 /* nav */
@@ -451,7 +523,7 @@ ul.navbar{
     padding: 0;
     overflow: hidden;
 	display: block;
-	height: calc(var(----navheight));
+	height: calc(var(--navheight));
 }
 
 .li-nav {
@@ -460,11 +532,12 @@ ul.navbar{
 
 li a {
 	font-family: 'Work Sans', sans-serif;
-	font-size: calc(var(--font-multiplier) * 1.2em);
+	/*font-size: calc(var(--font-multiplier) * 1.2em);*/
     display: block;
     color: var(--link-color);
     text-decoration: none;
-	padding: calc(var(--navheight)/2);
+	padding: calc(var(--navheight)/4);
+	height: calc(var(--navheight)/2);
 }
 
 a {
@@ -478,13 +551,12 @@ a:hover {
 
 #title {
 	float: left;
-	padding-left: 1%;
 	display: inline-block;
 }
 #logo {
 	height: 80%;
 	width: auto;
-	margin-top: -15%;
+	margin: auto;
 }
 
 #searchBar {
@@ -497,8 +569,9 @@ a:hover {
     display: block;
     color: var(--nav-title-color);
     text-decoration: none;
-	margin: calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)*2);
-	width: 14%;
+	/*margin: calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)/2) calc(var(--navheight)*2);*/
+	margin: 3.5vh 2vh 2vh 2vh;
+	width: 250px;
 	float: left;
 }
 
@@ -569,6 +642,10 @@ a:hover {
   visibility: visible;
 }
 
+.hide {
+	display: none;
+}
+
 .contentContainer .show {
   visibility: visible;
   -webkit-animation: fadeIn 0.5s;
@@ -609,6 +686,19 @@ a:hover {
   color: rgb(200,200,200);
   font-size: calc(var(--font-multiplier) * 16px);
 }
+
+/* selection 
+
+::-moz-selection {
+  color: red;
+  background: yellow;
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+*/
 
 
 /** Mobile CSS **/

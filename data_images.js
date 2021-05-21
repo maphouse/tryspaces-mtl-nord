@@ -1,5 +1,5 @@
 //initialize pathways
-var p = ["places","Hash","Leika","Christopher","Ylias","Killian"]
+var p = ["places","Sam","Léana","Pierre","Rayan","Liam"]
 //initial pathway always equal to 0 until another is selected by user
 var path = 0;
 
