@@ -16,7 +16,6 @@ var geojsonData = {
 				{
 					"media": "imgs/IMG_20190508_232246_068.jpg"
 					,"path": p[1]
-					,"themes":["chilling spot","confort","loisir/passion"]
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
@@ -54,7 +53,6 @@ var geojsonData = {
 				{
 					"media": "imgs/Screenshot_20190515-123046.png"
 					,"path": p[1]
-					,"themes":["loisir/passion"]
 				}
 			]
 			},
@@ -72,7 +70,6 @@ var geojsonData = {
 				{
 					"media": "imgs/IMG_20190504_214217_434.jpg"
 					,"path": p[5]
-					,"themes":["chilling spot","joie","loisir/passion"]
 				}
 			]
 		},
@@ -115,7 +112,6 @@ var geojsonData = {
 					,"path": p[3]
 					,"description":"de la créativité dans le nord"
 					,"caption":"Capture d'écran d'un affichage Instagram"
-					,"themes":["confort","chilling spot"]
 				}
 			]
 		},
@@ -132,17 +128,14 @@ var geojsonData = {
 				{
 					"media": "imgs/IMG_20190504_214150_660.jpg"
 					,"path": p[2]
-					,"themes": ["études/travail","quotidien","safe space"]
 				}
 				,{
 					"media": "imgs/IMG_20190504_214157_508.jpg"
 					,"path": p[2]
-					,"themes": ["études/travail","quotidien","confort"]
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-120742.png","imgs/Screenshot_20190528-120758.png"]
 					,"path": p[4]
-					,"themes": ["études/travail"]
 				}
 			]
 		},
@@ -162,7 +155,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "Hier après-midi, pause lecture en compagnie de Célia"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["confort","chilling spot"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120202.png"
@@ -174,7 +166,6 @@ var geojsonData = {
 					"media": "imgs/IMG_20190514_111843_264.jpg"
 					,"path": p[4]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["confort","loisir/passion"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121005.png"
@@ -192,19 +183,16 @@ var geojsonData = {
 					,"path": p[4]
 					,"description": "la bibliothèque c'est l'endroit où je me sens le plus en sécurité"
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes": ["loisir/passion","études/travail","safe space", "confort"]
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-121214.png","imgs/Screenshot_20190528-121233.png","imgs/Screenshot_20190528-121226.png"]
 					,"path": p[4]
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes": ["loisir/passion","chilling spot","safe space","études/travail", "confort","enfance/souvenir","occasionnel"]
 				}
 				,{
 					"media": "imgs/IMG_20190522_083748_325.jpg"
 					,"path": p[4]
 					,"caption": ""
-					,"themes":["transport"]
 				}
 			]
 		},
@@ -222,21 +210,18 @@ var geojsonData = {
 					"media": "imgs/IMG_20190504_214203_730.jpg"
 					,"path": p[2]
 					,"description": "à la BANQ"
-					,"themes": ["occasionnel","étude/travail"]
 				}
 				,{
 					"media": "imgs/IMG_20190504_214206_564.jpg"
 					,"path": p[2]
 					,"description": ""
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": []
 				}
 				,{
 					"media": "imgs/Screenshot_20190602-144247.png"
 					,"path": p[5]
 					,"description": ""
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": []
 				}
 			]
 		},
@@ -254,32 +239,26 @@ var geojsonData = {
 					"media": "imgs/Screenshot_20190607-131601.png"
 					,"path": p[3]
 					,"description": "nouveau projet de réaménagement de l'école HB et du parc Hb"
-					,"themes": ["occasionnel","étude/travail"]
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-120607.png","imgs/Screenshot_20190528-120638.png"]
 					,"path": p[5]
-					,"themes": ["étude/travail","danger"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120645.png"
 					,"path": p[5]
-					,"themes": ["étude/travail"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084359.png"
 					,"path": p[5]
-					,"themes": ["chilling spot"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120624.png"
 					,"path": p[5]
-					,"themes": ["transgression","confort","étude/travail"]
 				}
 				,{
 					"media": "imgs/IMG_20190514_111508_302.jpg"
 					,"path": p[5]
-					,"themes": ["étude/travail"]
 				}
 			]
 		},
@@ -315,7 +294,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "en route vers la BANQ"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["transport","quotidien/routine","étude/travail"]
 				}
 				,{
 					"media": "imgs/IMG_20190508_151936_474.jpg"
@@ -327,7 +305,6 @@ var geojsonData = {
 					,"path": p[3]
 					,"description": "STM"
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes": ["transport","surveillance","contrôle"]
 				}
 			]
 		},
@@ -345,7 +322,6 @@ var geojsonData = {
 					"media": "imgs/IMG_20190518_171348_673.jpg"
 					,"path": p[4]
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes": ["chilling spot"]
 				}
 			]
 		},
@@ -364,7 +340,6 @@ var geojsonData = {
 					,"path": p[1]
 					,"description": "Date"
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes": ["loisir/passion"]
 				}
 			]
 		},
@@ -404,49 +379,41 @@ var geojsonData = {
 					"media": "imgs/Screenshot_20190522-084635.png"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["quotidien","étude/travail"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190607-131611.png"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","occasionnel"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084639.png"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["quotidien","étude/travail","confort"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084608.png"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","quotidien","confort","transport"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120456.png"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","quotidien","danger"]
 				}
 				,{
 					"media": "imgs/VID_121430907_073700_562.mp4"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","quotidien"]
 				}
 				,{
 					"media": "imgs/VID_121431014_230436_980.mp4"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","quotidien"]
 				}
 				,{
 					"media": "imgs/VID_121430802_110759_268.mp4"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","quotidien"]
 				}
 			]
 		},
@@ -464,7 +431,6 @@ var geojsonData = {
 					"media": "imgs/IMG_20190506_204556_766.jpg"
 					,"path": p[5]
 					,"caption": "Capture écran d'un affichage Instagram"
-					,"themes":["chilling spot","confort","joie","loisir/passion"]
 				}
 			]
 			,"place_type": "park"
@@ -484,7 +450,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "Date"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["étude/travail","occasionnel","confort"]
 					,"lieu":"Quartier des Spectacles"
 				}
 				,{
@@ -492,7 +457,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "Happy"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["loisir/passion","occasionnel"]
 				}
 			]
 		},
@@ -528,7 +492,6 @@ var geojsonData = {
 					"media": "imgs/IMG_20190528_121528_172.jpg"
 					,"path": p[5]
 					,"caption": "Capture écran d'un affichage Instagram"
-					,"themes":["quotidien"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190515-123051.png"
@@ -545,7 +508,6 @@ var geojsonData = {
 					"media": "imgs/Screenshot_20190522-084253.png"
 					,"path": p[5]
 					,"caption": "Capture écran d'un affichage Instagram"
-					,"themes":["chilling spot","confort","joie"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121044.png"
@@ -592,26 +554,22 @@ var geojsonData = {
 					"media": "imgs/Screenshot_20190528-120855.png"
 					,"path": p[3]
 					,"caption": "Capture écran d'un affichage Instagram"
-					,"themes":["contrôle","surveillance"]
 					,"lieu":"Rue Langelier"
 				}
 				,{
 					"media": "imgs/IMG_20190522_083745_523.jpg"
 					,"path": p[4]
-					,"themes":["transport"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084335.png"
 					,"path": p[5]
 					,"description":"journée du drapeau haitien, plein de jeunes, c'est stimulant"
-					,"themes":["loisir/passion","joie","chilling spot"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084346.png"
 					,"path": p[5]
 					,"description": "fête du drapeau, avec mes amis"
 					,"caption": "Capture d'écran d'un affichage Instagram"
-					,"themes":["loisir/passion","joie","chilling spot"]
 				}
 			]
 		},
@@ -630,7 +588,6 @@ var geojsonData = {
 					"media": "imgs/VID_19931020_005937_355.mp4"
 					,"path": p[3]
 					,"caption": "Clip vidéo d'un story Instagram"
-					,"themes": ["étude/travail"]
 				}
 			]
 		},
@@ -649,7 +606,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "en marchant vers l'arret de bus"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["transport","quotidien/routine"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190515-123041.png"
@@ -661,7 +617,6 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "j'attends le bus, je suis fatiguée"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["transport","quotidien/routine"]
 				}
 				,{
 					"media": "imgs/IMG_20190508_131839_076.jpg"
@@ -714,38 +669,31 @@ var geojsonData = {
 					,"path": p[2]
 					,"description": "décompresser"
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["quotidien/routine","confort"]
 				}
 				,{
 					"media": "imgs/IMG_20190506_204552_784.jpg"
 					,"path": p[5]
-					,"themes": ["ennui"]
 				}
 				,{
 					"media": "imgs/IMG_20190510_151621_129.jpg"
 					,"path": p[3]
-					,"themes": ["quotidien"]
 				}
 				,{
 					"media": "imgs/VID_104240219_161920_007.mp4"
 					,"path": p[1]
-					,"themes": ["loisir/passion"]
 				}
 				,{
 					"media": "imgs/IMG_20190522_083810_831.jpg"
 					,"path": p[1]
-					,"themes": ["loisir/passion"]
 				}
 				,{
 					"media": "imgs/VID_77590716_030041_004.mp4"
 					,"path": p[2]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["quotidien/routine","confort"]
 				}
 				,{
 					"media": "imgs/Screenshot_20190506-204530.png"
 					,"path": p[5]
-					,"themes": ["loisir/passion"]
 				}
 				,{
 					"media": "imgs/VID_65380126_133215_941.mp4"
@@ -754,29 +702,24 @@ var geojsonData = {
 				,{
 					"media": "imgs/IMG_20190514_112052_377.jpg"
 					,"path": p[4]
-					,"themes": ["quotidien"]
 				}
 				,{
 					"media": "imgs/IMG_20190514_112057_223.jpg"
 					,"path": p[4]
-					,"themes": ["quotidien","études/travail"]
 				}
 				,{
 					"media": "imgs/IMG_20190514_112054_962.jpg"
 					,"path": p[4]
-					,"themes": ["quotidien","études/travail"]
 				}
 				,{
 					"media": "imgs/IMG_20190510_151642_438.jpg"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["loisir/passion","joie"]
 				}
 				,{
 					"media": "imgs/VID_19940913_051756_410.mp4"
 					,"path": p[3]
 					,"caption": "Capture d'écran d'un story Instagram"
-					,"themes": ["loisir/passion"]
 				}
 			]
 		},

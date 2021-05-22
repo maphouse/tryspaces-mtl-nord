@@ -400,7 +400,7 @@ function chunkify(arrayInput, type) {
 				//insert color coding difference if = path, 'style='background-color:red;color:var(--hover-color)'
 				html += String("<span class='path_tag highlight'>"+arrayInput[i]+"</span>")
 			} else {
-				html += String("<span class='path_tag'>"+arrayInput[i]+"</span>")
+				html += String("<span class='path_tag highlight2'>"+arrayInput[i]+"</span>")
 			}
 		}
 	}
@@ -426,6 +426,9 @@ function selectPath(element) {
 			//highlight nav buttons
 			document.querySelector(".prevPlace").classList.remove('highlight');
 			document.querySelector(".nextPlace").classList.remove('highlight');
+			document.querySelector(".restart").classList.remove('highlight');
+			document.querySelector(".exitX").classList.remove('highlight');
+			document.getElementsByTagName("body")[0].classList.remove('changeBackground');
 			//document.getElementById("leftPane").classList.remove('highlight');
 			//document.querySelector(".scroller").classList.remove('highlight');
 			
@@ -445,13 +448,17 @@ function selectPath(element) {
 					els[i].classList.add('highlight');
 				} else {
 					els[i].classList.remove('highlight');
+					els[i].classList.add('highlight2');
 				}
 			}
 			
 			//highlight nav buttons
 			document.querySelector(".prevPlace").classList.add('highlight');
 			document.querySelector(".nextPlace").classList.add('highlight');
-			document.getElementById("leftPane").classList.add('highlight');
+			document.querySelector(".restart").classList.add('highlight');
+			document.querySelector(".exitX").classList.add('highlight');
+			document.getElementsByTagName("body")[0].classList.add('changeBackground');
+			//document.getElementById("leftPane").classList.add('highlight');
 			//document.getElementById("leftPane").classList.add('highlight');
 			//document.querySelector(".scroller").classList.add('highlight');
 			
@@ -472,6 +479,9 @@ function selectPath(element) {
 			//highlight nav buttons
 			document.querySelector(".prevPlace").classList.add('highlight');
 			document.querySelector(".nextPlace").classList.add('highlight');
+			document.querySelector(".nextPlace").classList.add('highlight');
+			document.querySelector(".restart").classList.add('highlight');
+			document.querySelector(".exitX").classList.add('highlight');
 		}
 	}
 };

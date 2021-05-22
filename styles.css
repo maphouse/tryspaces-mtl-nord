@@ -144,7 +144,6 @@ footer {
 	grid-column: 1 / span 5;
 	grid-row: 3 / span 1;
 	padding: 15px;
-	background-color: var(--path-color);
 	border-radius: 10px;
 }
 /*
@@ -165,6 +164,7 @@ footer {
 	/*background-color: var(--path-color);*/
 	background-image: url('cover_2.jpg');
 	background-position: center;
+	background-repeat: no-repeat;
 	width: 100%;
 	border-radius: 10px;
 }
@@ -489,8 +489,16 @@ span.path_tag:hover {
 }
 
 .highlight {
-	background-color: var(--button-color);
+	/*background-color: var(--button-color);*/
 	color: var(--hover-color) !important;
+	border-color: black !important;
+}
+.highlight2 {
+	color: var(--hover-color) !important;
+}
+
+.changeBackground {
+	background-color: var(--button-color);
 }
 
 .projectTitle {
