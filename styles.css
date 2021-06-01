@@ -72,7 +72,7 @@ h2 {
 	font-family: 'Work Sans', sans-serif;
 	color: var(--button-color);
 	font-size: calc(var(--font-multiplier) * 1em);
-	font-weight: bold;
+	font-weight: normal;
 	display: inline;
 	padding:0px 0px 0px 0px;
 }
