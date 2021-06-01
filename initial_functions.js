@@ -245,7 +245,7 @@ preloadImages(slides);
 
 
 function slideshow(s){
-	const time = 3000
+	const time = 5000
 	//create fade effect
 	let i=0
 	
