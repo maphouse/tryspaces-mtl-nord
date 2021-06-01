@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-/*special google fonts import
+/*special google fonts import*/
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
 /* HK grotesk on font squirrel is good too */
 
@@ -30,9 +30,10 @@ body {
 	--main-bg-color: #fff4db;	
 	--nav-title-color: #2d8bbc;
 	--path-color: #E0DFAD;
-	--main-text-color: #e0cae3;
+	--main-text-color: #AB91B3;
 	--caption-color: #728794;
-	--link-color: #C2D5E0;
+	--link-color: #ADBDC7;
+	/*--link-color: #C2D5E0;*/
 	--button-color: #3A407A;
 	--tag-color: #ed8266;
 	--hover-color: black;
