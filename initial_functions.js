@@ -75,7 +75,7 @@ var overlays = {
 
 //load map options
 
-var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:16,bottomLeft:[45.58192974974479, -73.65249050375052],topRight:[45.603733052315095, -73.6152227495604],baselayer:whiteTiles,geojson:"data_images.js",overlays:[mentalmap_bw]}
+var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:16,bottomLeft:[45.57692974974479, -73.65749050375052],topRight:[45.608733052315095, -73.6102227495604],baselayer:whiteTiles,geojson:"data_images.js",overlays:[mentalmap_bw]}
 var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_sons.js"}
 var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
 
@@ -208,3 +208,85 @@ function recenterMap() {
 	mymap.invalidateSize({animate: true});
 	console.log("map recentered");
 }
+
+//basic slider function
+
+
+let slides=['cover_3.jpg', 'cover_1.jpg', 'cover_2.jpg', 'cover_4.jpg', 'cover_5.jpg', 'cover_6.jpg', 'cover_7.jpg','cover_8.jpg']
+/*
+slides.forEach(function(img){
+    new Image().src = img; 
+    // caches images, avoiding white flash between background replacements
+});
+
+function preloadImages(array) {
+    if (!preloadImages.list) {
+        preloadImages.list = [];
+    }
+    var list = preloadImages.list;
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                // remove image from the array once it's loaded
+                // for memory consumption reasons
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = array[i];
+    }
+}
+
+preloadImages(slides);
+*/
+
+
+
+function slideshow(s){
+	const time = 3000
+	//create fade effect
+	let i=0
+	
+	function changePic(){
+		document.getElementById("splash-item5").style.backgroundImage = "url(" + s[i] + ")"
+		if (i < s.length-1) {
+			i++
+		} else {
+			i=0
+		}
+		setTimeout(function(){ changePic() }, time)
+	}
+	changePic();
+}
+
+slideshow(slides);
+/*
+
+secs = 4;
+slides.forEach(function(img){
+    new Image().src = img; 
+    // caches images, avoiding white flash between background replacements
+});
+
+function backgroundSequence() {
+	window.clearTimeout();
+	
+	var k = 0;
+	
+	for (i = 0; i < slides.length; i++) {
+		setTimeout(function(){ 
+			document.getElementById("splash-item5").style.backgroundImage = slides[i]
+			if ((k + 1) === slides.length) {
+				setTimeout(function() {
+					backgroundSequence()
+					}, (secs * 1000))
+			} else {
+				k++;
+			}			
+		}, (secs * 1000) * i)	
+	}
+}
+window.onload = backgroundSequence
+*/

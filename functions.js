@@ -223,12 +223,12 @@ function mediaProcessing(media, id) {
 		var returnVal = "<img class='mediaWrapper' id='slideshow"+id+"' src='"+media[0]+"' alt='image slideshow' />";
 	} else if (typeof media === "string" && ((media.slice(-3) === 'm4a') || (media.slice(-3) === 'mp3'))){
 		//when media is audio
-		var returnVal = "<audio class='mediaWrapper' id='audio"+id+"' src='"+media+"' alt='audio' type='audio/aac' controls></audio>";
+		var returnVal = "<audio class='mediaWrapper' id='audio"+id+"' src='"+media+"' alt='audio' type='audio/aac' controls controlsList='nodownload' ></audio>";
 		//<audio class="player" src="content/Vocal 035.m4a" type="audio/aac" controls />
 	} else if (typeof media === "string" && ((media.slice(-3) === 'mp4'))){
 		//when media is audio
 		
-		var returnVal = "<video class='mediaWrapper' id='video"+id+"' src='"+media+"' alt='video' type='video/mp4' controls></video>";
+		var returnVal = "<video class='mediaWrapper' id='video"+id+"' src='"+media+"' alt='video' type='video/mp4' controls controlsList='nodownload' ></video>";
 		//console.log("returnVal ",returnVal)
 		//console.log("returnVal.height ",returnVal.duration)
 		//<audio class="player" src="content/Vocal 035.m4a" type="audio/aac" controls />
@@ -339,8 +339,8 @@ function styleFeatures(layer, element){
 		kw = element.innerHTML
 		if (element.style.backgroundColor === ""){
 			console.log("color is blank, toggle to selected")
-			element.style.backgroundColor = "var(--map-selection-color)";
-			element.style.borderColor = "var(--map-selection-color)";
+			element.style.backgroundColor = "var(--button-color)";
+			element.style.borderColor = "var(--button-color)";
 			element.style.color = "var(--hover-color)";
 		} else {
 			console.log("color is selected, toggle blank")
@@ -394,13 +394,19 @@ function chunkify(arrayInput, type) {
 		}
 	} else if (type === 1){
 		//persons
-		for (let i=0;i<arrayInput.length;i++) {
-			if (find_path(path) === arrayInput[i]) {
-				console.log("path: ",path)
-				//insert color coding difference if = path, 'style='background-color:red;color:var(--hover-color)'
-				html += String("<span class='path_tag highlight'>"+arrayInput[i]+"</span>")
-			} else {
-				html += String("<span class='path_tag highlight2'>"+arrayInput[i]+"</span>")
+		if (path > 0) {
+			for (let i=0;i<arrayInput.length;i++) {
+				if (find_path(path) === arrayInput[i]) {
+					console.log("path: ",path)
+					//insert color coding difference if = path, 'style='background-color:red;color:var(--hover-color)'
+					html += String("<span class='path_tag highlight'>"+arrayInput[i]+"</span>")
+				} else {
+					html += String("<span class='path_tag highlight2'>"+arrayInput[i]+"</span>")
+				}
+			}
+		} else {
+			for (let i=0;i<arrayInput.length;i++) {
+				html += String("<span class='path_tag'>"+arrayInput[i]+"</span>")
 			}
 		}
 	}
@@ -421,6 +427,7 @@ function selectPath(element) {
 			console.log("els", els)
 			for(let i = 0; i < els.length; i++){
 				els[i].classList.remove('highlight');
+				els[i].classList.remove('highlight2');
 			}
 				
 			//highlight nav buttons
@@ -607,6 +614,7 @@ function addTopListeners() {
 		}
 		if (e.target && e.target.matches(".path_tag")) {
 			selectPath(e.target);
+			styleFeatures(geojsonLayer, e.target);
 			console.log("item ", e.target.className, " was clicked!");
 			console.log("path ", path, " was clicked!");
 		}
@@ -618,7 +626,7 @@ function addTopListeners() {
 			console.log("item ", e.target.className, " was clicked!");
 		}
 	});
-	
+	/*
 	document.getElementById("legend").addEventListener("click", function (e){
 		if (e.target && e.target.matches(".theme_tag")) {
 			styleFeatures(geojsonLayer, e.target);
@@ -630,6 +638,7 @@ function addTopListeners() {
 			console.log("path ", path, " was clicked!");
 		}
 	});
+	*/
 	
 
 	/*
@@ -711,7 +720,7 @@ $(document).ready(function() {
 	fetchJsonObjectFromUrl(undefined);
 	loadFeatureIDlist();
 	addTopListeners();
-	generateLegend(p.slice(1,6));
+	//generateLegend(p.slice(1,6));
 	var timer;
 	var timer_switch = 0;
 	

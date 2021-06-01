@@ -162,11 +162,12 @@ footer {
 	grid-row: 1 / span 2;
 	padding: 15px;
 	/*background-color: var(--path-color);*/
-	background-image: url('cover_2.jpg');
+	/*background-image: url('cover_2.jpg');*/
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 100%;
 	border-radius: 10px;
+	transition: 3s;
 }
 
 
@@ -295,7 +296,7 @@ img + .annotationContainer {
 
 /*when audio, push annotation container lower so they don't overlap*/
 video + .annotationContainer {
-	bottom: 30%;
+	bottom: 15%;
 }
 
 #box {
@@ -344,9 +345,11 @@ video + .annotationContainer {
 
 #leftPane > main {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-gap: var(--content-gap);
 	grid-area: main;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: min-content;
+	grid-gap: var(--content-gap);
+	margin-bottom: var(--content-gap);
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -361,6 +364,7 @@ video + .annotationContainer {
 	scrollbar-color: var(--default-item-color) var(--main-bg-color);
 	scrollbar-width: thin;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 /* chrome default scrollbar styles */
 ::-webkit-scrollbar {

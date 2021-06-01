@@ -21,7 +21,7 @@ var geojsonData = {
 				,{
 					"media": "content/02-9-Parc HB.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "« Veut veut pas y‘avais quand même de la surveillance. Surtout après ce qui est arrivé a Freddy, je l’ai beaucoup remarqué. »"
 				}
 				,{
 					"media": "content/02-10-Parc HB.mp3"
@@ -243,25 +243,25 @@ var geojsonData = {
 				{
 					"media": "content/02-14-CEGEP Marie Vic.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Le Cégep, ici en tout cas,  il est vraiment très grand. Fait qu’au début, quand je suis arrivé, j’étais un peu perdu. Déjà j’etais la première à y aller dans ma famille [...]"
 
 				}
 				,{
 					"media": "content/02-15-Cégep MARIE VIC 1.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "C’est juste vraiment étrange,  les personnes pensent que t’habite dans un coin  que.. c’est comme les gens se l’imagine à Montreal-Nord... C’est violent, les jeunes sont pas eduqués, les jeunes sont si, ça. Pis meme moi, j’ai remarqué que quand j’etais plus jeune, je faisais un peu de la censure parce que dans mon CV je disais pas que je venais de Montréal-Nord. Je disais juste Montréal. Quand tu disais que tu venais de Montréal-Nord, on faisait directement le lien avec les révoltes [...] Pis même quand on a fait le terrain,avec la classe, on se promenait dans tous les secteurs qui sont connus a Montréal-Nord. Bah tout le monde a dit que ce n’est pas par ici que je voudrais que mon enfant habite ou c’est pas par ici que je voudrais élever mon enfant."
 
 				}
 				,{
 					"media": "content/02-16-Cégep MARIE VIC 2.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "[...] Pis quand je regarde la situation, jusqu’à aujourdhui,  je me dis que c’est un probleme qu’on refuse d’attaquer ici,  alors que c’est… même juste quand je parle aux gens du fait que je viens de Montréal-Nord, t'as l’impression que, pas que ta honte mais t'as l’impression que le regard qu’on pose sur toi c’est très négatif [...]"
 
 				}
 				,{
 					"media": "content/02-17-CEGEP Marie Vic 4.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "C’est juste que parfois, comme j'ai dit tantôt, quand on avait des classes comme en sociologie, c’est les commentaires des gens qui justement venaient d’ailleurs, ils ne venaient pas d’ici. C’était soit des gens de Saint-Léonard, ou  du fond du Québec qui venait ici. Ceux qui justement en venant ici disait que tu viens de Montréal-Nord. On dirait que c’est comme si t’étais carrément un extra-terrestre. Parce qu’il connaissait pas ce milieu-là pis il était vraiment jamais en contact avec des gens racisé.es aussi. Donc c’était juste ça qui était un peu bizarre. Mais le Cégep est vraiment accueillant. Et dans mes classes y'a quand meme assez de personnes racisé.es. Comparé à avant, y’avais peu de personne racisé.es. Par exemple en 2014, mon prof d’histoire me disait que y’avais pas beaucoup de personne racisé.es; c’était le cégep le plus proche de Montréal-Nord."
 
 				}
 				,{
@@ -292,7 +292,7 @@ var geojsonData = {
 				,{
 					"media": "content/02-2-MCC.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Maintenant, comme je suis au collégiale, je fréquente plus la bibliothèque du collégial, puisque y'a le laboratoire, y'a plus de ressources là-bas aussi, mais je pense aussi que j’ai juste plus de temps. J’ai comme moins de motivation pour me promener. Parce que je suis trop fatiguée; pis quand je suis fatguée je vais rentrer directement chez moi apres l’école."
 				}
 				,{
 					"media": "content/02-3-MCC.mp3"
@@ -325,7 +325,7 @@ var geojsonData = {
 				,{
 					"media": "content/01-vocal-12_8.m4a"
 					,"path": p[1]
-					,"description": "« Honnêtement la MCC  je dirais que la MCC…Ce n’est pas que ça me rapporte beaucoup mais, c’est plus un lieu auquel je suis très familier avec. Pis je sais que si ici, je sais que si je serais la tard, disons que je sais que je ne me ferais pas déranger par des personnes à l’extérieur, ou par quelque policier ou des trucs comme ça… Aussi, je me sens beaucoup plus en sécurité, à la MCC, ou à la bibliothèque de la MCC, ou aussi dans le sous-sol de la MCC. Que si je fais juste trainer à un certains endroits durant l’heure  du jour ou du soir. Fait que ouais, la MCC j’y vais très souvent, car je suis très familier avec »."
+					,"description": "« Honnêtement la MCC  je dirais que la MCC…Ce n’est pas que ça me rapporte beaucoup mais, c’est plus un lieu auquel je suis très familier avec. Pis je sais que si ici, je sais que si je serais la tard, disons que je sais que je ne me ferais pas déranger par des personnes à l’extérieur, ou par quelque policier ou des trucs comme ça… Aussi, je me sens beaucoup plus en sécurité, à la MCC, ou à la bibliothèque de la MCC, ou aussi dans le sous-sol de la MCC. Que si je fais juste trainer à un certains endroits durant l’heure  du jour ou du soir. Fait que ouais, la MCC j’y vais très souvent, car je suis très familier avec »"
 					,"caption": ""
 				}
 				,{
@@ -386,13 +386,13 @@ var geojsonData = {
 				{
 					"media": "content/02-7-école HB.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Ça c’est plus quand j’étais à l’école secondaire durant l’heure du diner. On venait souvent ici pour... c’était comme un temps pour relaxer, pour aller voir les autres puis pour chiller."
 
 				}
 				,{
 					"media": "content/02-8-HB école.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Qu’est ce qu’elle te fait cette surveillance a toi ? bah tu ne te sens pas a l’aise de rester ici. Surtout que moi je reste ici assez tard pour étudier, pas souvent mais des fois. Ça ne te donne pas le goût de rester ici.  Tu te sens regardé, c’est pas plaisant.  Ça fait que les rapports avec les gens que t'as ici c’est pas positif."
 
 				}
 				,{
@@ -432,7 +432,7 @@ var geojsonData = {
 		,{"type": "Feature",
 		"properties": {
 			"id": [5,5,,,,]
-			,"title": "Rue Henri-Bourassa"
+			,"title": "Rue Gouin"
 			,"_items": [
 				{
 					"media": "content/01-vocal-22_2.m4a"
@@ -474,7 +474,7 @@ var geojsonData = {
 		},
 		"geometry": {
 			"type": "Point",
-			"coordinates": [ -73.6214753376206,45.606195202667394 ]
+			"coordinates": [ -73.6330676800617,45.619059558052854 ]
 			}
 		}
 		,{"type": "Feature",
@@ -532,22 +532,22 @@ var geojsonData = {
 				{
 					"media": "content/02-11-Monty.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Pis c’est aussi là-bas que… quand il s’est passé les révoltes, suite à ce qu’il s’est passé avec Freddy, j’étais aussi là-bas. Donc j’avais vu la réaction des gens qui habitaient là-bas, dont mes parents. C’est aussi pour ça qu’ils ont décidé de déménager vers Gouin. Ça m’a vraiment marqué [...]"
 				}
 				,{
 					"media": "content/02-11-Monty2.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Les gens ici se connaissaient assez bien. Donc quand j’allais vers le dépanneur, ou que j’allais chez des gens que je connaissais ici, y'avait pas de problème pour pouvoir se déplacer. Mais fut un temps où, à côté de chez nous, y'a commencé à avoir  un peu de problèmes dans le sens où ces gens-là se chicanaient souvent; pis des fois y'a des gens qui ont  dû carrément appeler la police. Fait que mes parents ont juste déménagé. Mais sinon ici c’était vraiment calme; tu ne te sentais pas, en sécurité c’était sécuritaire ici. Je connaissais tous les gens ici où j’habitais donc c’était beaucoup plus facile d’interagir avec les gens ici. T’étais beaucoup plus connecté aux gens, comparé à où j’habite maintenant. C’est plus des maisons ; des allées. Là où j’habite c’est beaucoup plus des retraités pis c’est des riches là-bas, à part le fait de se dire allô, moi de ce que j’ai remarqué y'a pas vraiment de connexion avec ces gens-là."
 				}
 				,{
 					"media": "content/02-12-Monty.mp3"
 					,"path": p[2]
-					,"description": "[transcription à refaire]"
+					,"description": "Parce dans le quartier où est-ce que j’habitais, y'avais une diaspora haïtienne. Je pense que c’est une des choses qui a beaucoup aidé mes parents. Y'avait beaucoup d’entraide qui se faisait là-bas ; le fait qu’ils se connaissaient, donc je pense que par appartenance culturelle aussi, donc c’était beaucoup plus facile aussi pour eux d’interagir avec les autres; je pense que c’est un élément qui m'a beaucoup favorisé, ça aussi. Je connaissais assez de gens dans le quartier [...] "
 				}
 				,{
 					"media": "content/02-13 Chez soi Gouin.mp3"
 					,"path": p[2]
-					,"description": "« c’est à partir du moment où il y a eu les révoltes, avec Freddy, que mes parents ont commencé à avoir peur et ils ont décidé de déménager. » [transcription à refaire] "
+					,"description": "« c’était pas de la famille [sur Monty] mais on était vraiment très proche;  j’allais carrément chez eux durant des évènements, des fois j’allais juste pour aller avec leurs enfants;  on était vraiment à l’aise. Là ou j’habite maintenant y'a pas d’aller chez les gens. Tu te sentais en sécurité ici.  »"
 				}
 				,{
 					"media": "content/01-vocal-15_2.m4a"
