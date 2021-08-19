@@ -1,5 +1,7 @@
 This is a vanilla JS project built around an interactive webmap which allows users to navigate qualitative content along given narrative pathways. Users can navigate along the story arc of a given path (in this case, individual accounts), or navigate by interacting directly with the map. The goal of the app is to create an experience that engages with the plurality perspectives (and their trajectories) associated with urban spaces.
 
+
+
 the project can be viewed as a github page, and reads as follows:
 
 *Bienvenue dans « J'te parle du Nord », un projet cartographique qui permet de rentrer dans le quotidien de cinq résidents de 18 à 23 ans du Nord-Est de l’arrondissement de Montréal-Nord.*
