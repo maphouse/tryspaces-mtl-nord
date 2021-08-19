@@ -3,7 +3,7 @@ This is a vanilla JS project built around an interactive webmap which allows use
 <br>
 <br>
 
-the project can be viewed as a github page, and reads as follows:
+The project can be viewed as a github page, and reads as follows:
 
 *Bienvenue dans « J'te parle du Nord », un projet cartographique qui permet de rentrer dans le quotidien de cinq résidents de 18 à 23 ans du Nord-Est de l’arrondissement de Montréal-Nord.*
 
