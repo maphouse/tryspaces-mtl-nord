@@ -75,9 +75,9 @@ var overlays = {
 
 //load map options
 
-var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:16,bottomLeft:[45.57692974974479, -73.65749050375052],topRight:[45.608733052315095, -73.6102227495604],baselayer:whiteTiles,geojson:"data_images.js",overlays:[mentalmap_bw]}
-var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_sons.js"}
-var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:19,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
+var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:15,bottomLeft:[45.57692974974479, -73.65749050375052],topRight:[45.608733052315095, -73.6102227495604],baselayer:whiteTiles,baseLayers:{"Fond blanc": whiteTiles},geojson:"data_images.js",overlays:[mentalmap_bw]}
+var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:18,minZoom:11,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,baseLayers:{"Satellite avec étiquettes": labels,"Classique": standard,"Normal": normal,"Mapbox Streets": normal2,"CartoDB": CartoDB_Positron},geojson:"data_sons.js"}
+var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:18,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
 
 
 
@@ -157,7 +157,7 @@ function launchMap(options) {
 			
 			//add layers to map
 			geojsonLayer.addTo(mymap);// add json element to map
-			var lcontrol = L.control.layers(baseLayers,overlays,{position:'topleft'});
+			var lcontrol = L.control.layers(window[options].baseLayers,overlays,{position:'topleft'});
 			lcontrol.addTo(mymap);
 			//mentalmap_color.addTo(mymap);
 			if (window[options].overlays) {
@@ -212,7 +212,7 @@ function recenterMap() {
 //basic slider function
 
 
-let slides=['cover_3.jpg', 'cover_1.jpg', 'cover_2.jpg', 'cover_4.jpg', 'cover_5.jpg', 'cover_6.jpg', 'cover_7.jpg','cover_8.jpg']
+
 /*
 slides.forEach(function(img){
     new Image().src = img; 
@@ -261,6 +261,7 @@ function slideshow(s){
 	changePic();
 }
 
+let slides=['cover_3.jpg', 'cover_1.jpg', 'cover_2.jpg', 'cover_4.jpg', 'cover_5.jpg', 'cover_6.jpg', 'cover_7.jpg','cover_8.jpg']
 slideshow(slides);
 /*
 

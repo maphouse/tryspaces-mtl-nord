@@ -34,6 +34,7 @@ body {
 	--caption-color: #728794;
 	--link-color: #ADBDC7;
 	/*--link-color: #C2D5E0;*/
+	/*--button-color: #AB91B3;*/
 	--button-color: #3A407A;
 	--tag-color: #ed8266;
 	--hover-color: black;
@@ -79,8 +80,14 @@ h2 {
 }
 h3 {
 	font-family: 'Work Sans', sans-serif; 
-	color: black;
-	font-size: calc(var(--font-multiplier) * 0.9em);
+	color: var(--main-text-color);
+	font-size: calc(var(--font-multiplier) * 1em);
+	font-weight: regular;
+}
+h4 {
+	font-family: 'Work Sans', sans-serif;
+	color: var(--hover-color);
+	font-size: calc(var(--font-multiplier) * 1em);
 	font-weight: regular;
 }
 p {
@@ -351,7 +358,7 @@ video + .annotationContainer {
 	grid-template-rows: min-content;
 	grid-gap: var(--content-gap);
 	margin-bottom: var(--content-gap);
-	overflow-y: auto;
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
@@ -429,7 +436,9 @@ span.path_tag {
 	border-style: solid;
 	border-color: var(--button-color);
 }
-h2 > span.path_tag {
+h3 > span.path_tag {
+	color: var(--main-text-color);
+	border-color: var(--main-text-color);
 	font-size: calc(var(--font-multiplier) * 0.8em);
 	font-weight: lighter;
 }
@@ -437,6 +446,12 @@ h2 > span.path_tag {
 span.path_tag:hover {
 	color: var(--hover-color);
 	background-color: var(--button-color);
+	cursor: pointer;
+}
+
+h3 > span.path_tag:hover {
+	color: var(--hover-color);
+	background-color: var(--main-text-color);
 	cursor: pointer;
 }
 
@@ -494,10 +509,16 @@ span.path_tag:hover {
 }
 
 .highlight {
-	/*background-color: var(--button-color);*/
+	background-color: var(--button-color);
 	color: var(--hover-color) !important;
 	border-color: black !important;
 }
+h3 > .highlight {
+	background-color: var(--main-text-color);
+	color: var(--hover-color) !important;
+	border-color: black !important;
+}
+
 .highlight2 {
 	color: var(--hover-color) !important;
 }

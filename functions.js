@@ -188,7 +188,7 @@ function generateHTML(feature,paths) {
 			} if (feature.properties._items[i].description) {
 				html_feature += String("<p class='quotation'>"+feature.properties._items[i].description+"</p>")
 			} if (feature.properties._items[i].path) {
-				html_feature += String("<h2>  — "+chunkify([feature.properties._items[i].path],1)+"</h2>")
+				html_feature += String("<h3>  — "+chunkify([feature.properties._items[i].path],1)+"</h3>")
 			} if (feature.properties._items[i].caption) {
 				html_feature += String("<p class='caption'>"+feature.properties._items[i].caption+"</p>")
 			} if (feature.properties._items[i].themes) {
@@ -308,8 +308,9 @@ function featureSelect(layer,kw) {
 
 
 function displayFeatureProperties(feature, layer) {
-  
-	layer.bindPopup("<h3>"+feature.properties.title+"</h3>", {closeButton: false, autoPan: false, offset: L.point(0, -20)});
+	console.log("layer ", layer)
+	console.log("feature ", feature)
+	layer.bindPopup("<h4>"+feature.properties.title+"</h4>", {closeButton: false, autoPan: false, offset: L.point(0, -20)});
 	
     layer.on('click', function () {
 		pushIDtoURL(feature, mymap); //for sharing the individual vignette url
@@ -337,18 +338,19 @@ function displayFeatureProperties(feature, layer) {
 function styleFeatures(layer, element){
 	if (element) {
 		kw = element.innerHTML
+		/*
 		if (element.style.backgroundColor === ""){
 			console.log("color is blank, toggle to selected")
-			element.style.backgroundColor = "var(--button-color)";
-			element.style.borderColor = "var(--button-color)";
-			element.style.color = "var(--hover-color)";
+			//element.style.backgroundColor = "var(--button-color)";
+			//element.style.borderColor = "var(--button-color)";
+			//element.style.color = "var(--hover-color)";
 		} else {
 			console.log("color is selected, toggle blank")
-			element.style.backgroundColor = "";
-			element.style.borderColor = "";
-			element.style.color = "";
+			//element.style.backgroundColor = "";
+			//element.style.borderColor = "";
+			//element.style.color = "";
 		}
-		
+		*/
 		for (let key in layer._layers) {
 			let obj = layer._layers[key];
 			let multiplier = 0;
@@ -366,15 +368,27 @@ function styleFeatures(layer, element){
 						//console.log("fillColor is ",obj.options.fillColor)
 					}
 				}
+				if (item.hasOwnProperty('path')){
+					//console.log("found 'themes' property")
+					//console.log("looping through arrays contained inside themes property of type object")
+					//console.log(obj.feature.properties.themes[mediaTheme])
+					if (item.path.includes(kw)){
+						multiplier += 1;
+						var id = obj._leaflet_id;
+						//console.log("object found ",id)
+						//console.log("leaflet id is ",id)
+						//console.log("fillColor is ",obj.options.fillColor)
+					}
+				}
 			}
 			if (multiplier > 0){
 				console.log("kw: ",kw,", multiplier: ",multiplier)
-				if (element.style.backgroundColor === ""){
+				if (element.classList.contains('highlight')){
+					console.log("color was toggled yellow, selecting map features")
+					layer._layers[id].setStyle({fillColor: 'var(--button-color)',fillOpacity:0.2*multiplier});
+				} else {
 					console.log("color was toggled blank, unselecting map features")
 					layer._layers[id].setStyle({fillColor: null,fillOpacity:0});
-				} else {
-					console.log("color was toggled yellow, selecting map features")
-					layer._layers[id].setStyle({fillColor: 'var(--map-selection-color)',fillOpacity:0.5*multiplier});
 				}
 			}
 		}
@@ -413,7 +427,25 @@ function chunkify(arrayInput, type) {
 	return html;
 }
 
-//hide elements not related to the clicked pathname and set up arrows for navigation down that path
+function styleTag() {
+	
+}
+
+//hide elements not related to the clicked pathname and style elements accordingly
+function stylePathTag(el) {
+	console.log(path, " <-- GLOBAL PATH VAR for selectPath")
+	console.log(element, " <-- element")
+}
+
+function hideElements() {
+	
+}
+
+function styleThemeTag() {
+	
+}
+
+//hide elements not related to the clicked pathname and style elements accordingly
 function selectPath(element) {
 	console.log(path, " <-- GLOBAL PATH VAR for selectPath")
 	console.log(element, " <-- element")
@@ -492,6 +524,7 @@ function selectPath(element) {
 		}
 	}
 };
+
 //this function returns the array position (path number) if the pathname (value) is passed, and the pathname if the number (position) is passed.
 function find_path(a){
 	if (typeof a === 'string'){
@@ -502,6 +535,7 @@ function find_path(a){
 };
 
 function zoom(feature, map, slidePane){
+	console.log("zoom feature ",feature)
 	var fitBounds = {maxZoom:16.5, animate: true, duration: 2, easeLinearity: 0.25};
 	if(map != null){
 		myMap = map;
@@ -552,6 +586,15 @@ function zoom(feature, map, slidePane){
 		}
 		//myMap.setView([lat, lng], 18, {animation: true});
 		//myMap.flyTo([lat, lng], 18)
+		keys = Object.keys(geojsonLayer._layers)
+		console.log(keys)
+		//open popup of zoomed feature
+		for (let k in keys) {
+			console.log(keys[k])
+			if (geojsonLayer._layers[keys[k]].feature === feature){
+				geojsonLayer._layers[keys[k]].openPopup();
+			}
+		}
 		console.log("zoomed on ", feature)
 	};
 	
