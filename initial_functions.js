@@ -4,6 +4,7 @@ var imageUrl_bw = 'drawing-4_white.png';
 var imageUrl_color = 'drawing-4_coloured_credits.png';
 var imageBounds = [[45.6023716076707473, -73.6510221845416027],[45.5831569024521457, -73.6163640421708720]];
 var geojsonLayer;
+var path;
 //var imgOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(mymap);// overlay image on basemap
 
 
@@ -129,7 +130,6 @@ function loadjscssfile(id, filename, filetype){
 }
 		
 function launchMap(options) {
-	
 	console.log("map launched");
 	location.href = '#';
 	document.getElementById('mapid').classList.remove('scroller2');
@@ -183,6 +183,47 @@ function launchMap(options) {
 	console.log('loading done')
 }
 
+function resetFeatureStyles() {
+	if (geojsonLayer != null){
+		keys = Object.keys(geojsonLayer._layers)
+		//console.log(keys)
+		//open popup of zoomed feature
+		for (let k in keys) {
+			//console.log(keys[k])
+			geojsonLayer._layers[keys[k]].setStyle({fillColor: null,fillOpacity:0});
+		}
+	}
+}
+
+function resetPaths(){
+	let els = document.querySelectorAll(".path_tag");
+	console.log("els", els)
+	
+	//if there was actually any .path_tag selected (only null if func is called from exitX in launchMap
+	if (els.length != 0){
+		for(let i = 0; i < els.length; i++){
+			els[i].classList.remove('highlight');
+			els[i].classList.remove('highlight2');
+		}
+		//highlight nav buttons
+		document.querySelector(".prevPlace").classList.remove('highlight');
+		document.querySelector(".nextPlace").classList.remove('highlight');
+		document.querySelector(".restart").classList.remove('highlight');
+		document.querySelector(".exitX").classList.remove('highlight');
+		document.getElementsByTagName("body")[0].classList.remove('changeBackground');
+		//document.getElementById("leftPane").classList.remove('highlight');
+		//document.querySelector(".scroller").classList.remove('highlight');
+		
+		//show all content
+		$(".contentContainer").show();
+	}
+	
+	//reset global path var
+	path = 0;
+	console.log("GLOBAL PATH VAR reset to ",path)
+	resetFeatureStyles()
+}
+
 //exit leftpane function
 function exitX() {
 	console.log("exiting pane");
@@ -190,8 +231,6 @@ function exitX() {
 	//document.getElementById('leftPane').classList.toggle("show");
 	//$( "#leftPane").show();
 	//zoom out to map extent
-	//reset global path var
-	path = 0;
 	
 	setTimeout(function(){
 		recenterMap();
@@ -200,7 +239,13 @@ function exitX() {
 	if (!document.getElementById("leftPane").classList.contains("hide")) {
 		document.getElementById("leftPane").classList.toggle("hide");
 	}
-		
+	//only if a path is highlighted/selected
+	if (path != 0){
+		resetPaths();
+	}
+	
+	//reset global path var
+	path = 0;
 };
 
 //this leaflet-sourced function is called after jquery map click slide from left

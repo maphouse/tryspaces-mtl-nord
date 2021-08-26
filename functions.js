@@ -426,7 +426,7 @@ function chunkify(arrayInput, type) {
 	}
 	return html;
 }
-
+/*
 function styleTag() {
 	
 }
@@ -444,7 +444,7 @@ function hideElements() {
 function styleThemeTag() {
 	
 }
-
+*/
 //hide elements not related to the clicked pathname and style elements accordingly
 function selectPath(element) {
 	console.log(path, " <-- GLOBAL PATH VAR for selectPath")
@@ -455,28 +455,7 @@ function selectPath(element) {
 		//if clicked path is already selected, toggle off and reveal all
 		if (element.firstChild.data === find_path(path)){
 			
-			let els = document.querySelectorAll(".path_tag");
-			console.log("els", els)
-			for(let i = 0; i < els.length; i++){
-				els[i].classList.remove('highlight');
-				els[i].classList.remove('highlight2');
-			}
-				
-			//highlight nav buttons
-			document.querySelector(".prevPlace").classList.remove('highlight');
-			document.querySelector(".nextPlace").classList.remove('highlight');
-			document.querySelector(".restart").classList.remove('highlight');
-			document.querySelector(".exitX").classList.remove('highlight');
-			document.getElementsByTagName("body")[0].classList.remove('changeBackground');
-			//document.getElementById("leftPane").classList.remove('highlight');
-			//document.querySelector(".scroller").classList.remove('highlight');
-			
-			//show all content
-			$(".contentContainer").show();
-			
-			//reset global path var
-			path = 0;
-			console.log("GLOBAL PATH VAR reset to ",path)
+			resetPaths();
 		
 		//if clicked path isn't already selected, toggle all else off and reveal clicked path only
 		} else if (element.firstChild.data !== find_path(path)){
