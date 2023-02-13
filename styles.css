@@ -543,7 +543,7 @@ h3 > .highlight {
 #mapid {
 	height: 93%;
 	width: 100%;
-	/*position: absolute;*/
+	position: absolute;
 	left: 0px;
     z-index: 1;
 	border-top-right-radius: 20px;

@@ -77,14 +77,16 @@ var overlays = {
 //load map options
 
 var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:15,bottomLeft:[45.57692974974479, -73.65749050375052],topRight:[45.608733052315095, -73.6102227495604],baselayer:whiteTiles,baseLayers:{"Fond blanc": whiteTiles},geojson:"data_images.js",overlays:[mentalmap_bw]}
+
 var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:18,minZoom:11,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,baseLayers:{"Satellite avec étiquettes": labels,"Classique": standard,"Normal": normal,"Mapbox Streets": normal2,"CartoDB": CartoDB_Positron},geojson:"data_sons.js"}
+
 var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:18,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
 
 
 
 //function adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss.shtml and https://cleverbeagle.com/blog/articles/tutorial-how-to-load-third-party-scripts-dynamically-in-javascript
 function loadjscssfile(id, filename, filetype){
-
+	
 	let loaded = false;
 	let existingScript = document.getElementById(id);
 	if (!existingScript){

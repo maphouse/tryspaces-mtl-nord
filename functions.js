@@ -159,11 +159,11 @@ function pushToHtml(feature) {
 	<div class='mediaWrapper'>"+feature.properties.media2+"</div><p class='caption'>"+feature.properties.caption2+"</p><div class='mediaWrapper'>"+feature.properties.media3+"</div><p class='caption'>"+feature.properties.caption3+"</p><p class='caption'>"+feature.properties.caption+"</p>
 	*/
 }
-
+/*
 function generateLegend(p) {
 	document.getElementById("legend").innerHTML = "<p class='path_tags'>Parcourir avec ... "+chunkify(p,1)+"</p>"
 }
-
+*/
 
 function generateHTML(feature,paths) {
 	let html = "<header><div id='paneNavigator'><div class='restart'>&#10226;</div><div class='prevPlace'>&#10132;</div><div class='exitX'>&#10006;</div><div class='nextPlace'>&#10132;</div><div class='projectTitle'><h1>"+feature.properties.title+"</h1></div></div><div class='introContainer'><p>"+((feature.properties.intro) ? feature.properties.intro : '')+"</p><p class='path_tags'>Parcourir avec ... "+chunkify(paths,1)+"</p></div></header><main class='scroller'>"
@@ -745,11 +745,11 @@ $(document).ready(function() {
 	//generateLegend(p.slice(1,6));
 	var timer;
 	var timer_switch = 0;
-	
+	/*
 	var el = document.getElementById('legend');
 	L.DomEvent.disableScrollPropagation(el);
 	L.DomEvent.disableClickPropagation(el);
-	
+	*/
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         $("#mapid").css("height", "100%");
     }
