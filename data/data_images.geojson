@@ -1,41 +1,34 @@
-//initialize pathways
-var p = ["places","Sam","Léana","Pierre","Rayan","Liam"]
-//initial pathway always equal to 0 until another is selected by user
-var path = 0;
-
-/*objects are ordered based on initial media ordering*/
-
-var geojsonData = {
+{
 	"type": "FeatureCollection",
 	"features": [
 		{"type": "Feature",
 		"properties": {
-			"id": [2,2,,,5.5,]
+			"id": [2,2,null,null,5.5,null]
 			,"title":"Parc HB"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190508_232246_068.jpg"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084021.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084535.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084138.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-083953.png"
-					,"path": p[4]
+					,"path": 4
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 			]
@@ -47,12 +40,12 @@ var geojsonData = {
 		},
 		{"type": "Feature",
 		"properties": {
-			"id": [5,3,,,,]
+			"id": [5,3,null,null,null,null]
 			,"title": "Centre commercial"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190515-123046.png"
-					,"path": p[1]
+					,"path": 1
 				}
 			]
 			},
@@ -64,12 +57,12 @@ var geojsonData = {
 	
 		{"type": "Feature",
 		"properties": {
-			"id": [7,,,,4,9.1]
+			"id": [7,null,null,null,4,9.1]
 			,"title": "Librairie Racines"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214217_434.jpg"
-					,"path": p[5]
+					,"path": 5
 				}
 			]
 		},
@@ -80,17 +73,17 @@ var geojsonData = {
 		},
 		{"type": "Feature",
 		"properties": {
-			"id": [8,,,,2,]
+			"id": [8,null,null,null,2,null]
 			,"title": "Rue Pascale"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-083932.png"
-					,"path": p[4]
+					,"path": 4
 					,"description":""
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-083944.png"
-					,"path": p[4]
+					,"path": 4
 					,"description":""
 				}
 			]
@@ -103,13 +96,12 @@ var geojsonData = {
 		
 		{"type": "Feature",
 		"properties": {
-			"id": [9,,,9,,]
+			"id": [9,null,null,9,null,null]
 			,"title": "Bibliothèque de Montréal-Nord"
-			
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-084437.png"
-					,"path": p[3]
+					,"path": 3
 					,"description":"de la créativité dans le nord"
 					,"caption":"Capture d'écran d'un affichage Instagram"
 				}
@@ -117,25 +109,25 @@ var geojsonData = {
 		},
 		"geometry": {
 			"type": "MultiPolygon",
-			"coordinates": [ [ [ [ -73.626651386397924, 45.591466270768173 ], [ -73.625439155791227, 45.591444237457218 ], [ -73.625510000437075, 45.589229845588427 ], [ -73.626737974298393, 45.589229845588427 ], [ -73.626651386397924, 45.591466270768173 ] ] ] ],
+			"coordinates": [ [ [ [ -73.626651386397924, 45.591466270768173 ], [ -73.625439155791227, 45.591444237457218 ], [ -73.625510000437075, 45.589229845588427 ], [ -73.626737974298393, 45.589229845588427 ], [ -73.626651386397924, 45.591466270768173 ] ] ] ]
 			}
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [3,,17,,7,]
+			"id": [3,null,17,null,7,null]
 			,"title": "Cégep Marie-Victorin"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214150_660.jpg"
-					,"path": p[2]
+					,"path": 2
 				}
 				,{
 					"media": "imgs/IMG_20190504_214157_508.jpg"
-					,"path": p[2]
+					,"path": 2
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-120742.png","imgs/Screenshot_20190528-120758.png"]
-					,"path": p[4]
+					,"path": 4
 				}
 			]
 		},
@@ -146,52 +138,52 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [1,1,1,1,1,]
+			"id": [1,1,1,1,1,null]
 			,"title": "Maison culturelle et communautaire (MCC)"
 			,"intro":""
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214154_165.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "Hier après-midi, pause lecture en compagnie de Célia"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120202.png"
-					,"path": p[3]
+					,"path": 3
 					,"description": "Ma cousine qui avait performé une dance chorégraphique"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190514_111843_264.jpg"
-					,"path": p[4]
+					,"path": 4
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121005.png"
-					,"path": p[1]
+					,"path": 1
 					,"description": ""
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190515-123115.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-120934.png","imgs/Screenshot_20190528-120927.png"]
-					,"path": p[4]
+					,"path": 4
 					,"description": "la bibliothèque c'est l'endroit où je me sens le plus en sécurité"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-121214.png","imgs/Screenshot_20190528-121233.png","imgs/Screenshot_20190528-121226.png"]
-					,"path": p[4]
+					,"path": 4
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190522_083748_325.jpg"
-					,"path": p[4]
+					,"path": 4
 					,"caption": ""
 				}
 			]
@@ -203,23 +195,23 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [13,,12,,,5.1]
+			"id": [13,null,12,null,null,5.1]
 			,"title": "BANQ"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214203_730.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "à la BANQ"
 				}
 				,{
 					"media": "imgs/IMG_20190504_214206_564.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": ""
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190602-144247.png"
-					,"path": p[5]
+					,"path": 5
 					,"description": ""
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
@@ -232,33 +224,33 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [4,,,2,,]
+			"id": [4,null,null,2,null,null]
 			,"title": "École HB"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190607-131601.png"
-					,"path": p[3]
+					,"path": 3
 					,"description": "nouveau projet de réaménagement de l'école HB et du parc Hb"
 				}
 				,{
 					"media": ["imgs/Screenshot_20190528-120607.png","imgs/Screenshot_20190528-120638.png"]
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120645.png"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084359.png"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120624.png"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/IMG_20190514_111508_302.jpg"
-					,"path": p[5]
+					,"path": 5
 				}
 			]
 		},
@@ -269,12 +261,12 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [18,4,,,,,]
+			"id": [18,4,null,null,null,null,null]
 			,"title": "Soccer"
 			,"_items":[
 				{
 					"media": "imgs/Screenshot_20190528-121114.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 			]
@@ -286,23 +278,23 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [20,5,10.5,3,,]
+			"id": [20,5,10.5,3,null,null]
 			,"title": "Station Henri-Bourassa"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214200_407.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "en route vers la BANQ"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190508_151936_474.jpg"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120843.png"
-					,"path": p[3]
+					,"path": 3
 					,"description": "STM"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
@@ -315,12 +307,12 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [21,,,,4,]
+			"id": [21,null,null,null,4,null]
 			,"title": "McDonald"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190518_171348_673.jpg"
-					,"path": p[4]
+					,"path": 4
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 			]
@@ -332,12 +324,12 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [22,3.2,,,,]
+			"id": [22,3.2,null,null,null,null]
 			,"title": "Allo Mon Coco"
 			,"_items": [
 				{
 					"media": ["imgs/Screenshot_20190602-144500.png","imgs/Screenshot_20190602-144407.png","imgs/Screenshot_20190602-144421.png"]
-					,"path": p[1]
+					,"path": 1
 					,"description": "Date"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
@@ -350,17 +342,17 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [26,3.3,,,,]
+			"id": [26,3.3,null,null,null,null]
 			,"title": "Cinéma Guzzo"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-084554.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084547.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 			]
@@ -372,47 +364,47 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [33,,,4]
+			"id": [33,null,null,4]
 			,"title": "École Louis Fréchette"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-084635.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190607-131611.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084639.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084608.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120456.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/VID_121430907_073700_562.mp4"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/VID_121431014_230436_980.mp4"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/VID_121430802_110759_268.mp4"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 			]
@@ -424,12 +416,12 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [31,,,,,3]
+			"id": [31,null,null,null,null,3]
 			,"title": "Parc Carignan"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190506_204556_766.jpg"
-					,"path": p[5]
+					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 			]
@@ -442,19 +434,19 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [32,,11,,,]
+			"id": [32,null,11,null,null,null]
 			,"title": "Centre-Ville"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190514_111849_920.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "Date"
 					,"caption": "Capture d'écran d'un story Instagram"
 					,"lieu":"Quartier des Spectacles"
 				}
 				,{
 					"media": "imgs/IMG_20190514_111913_295.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "Happy"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
@@ -480,94 +472,94 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [41,7,,6,,8]
+			"id": [41,7,null,6,null,8]
 			,"title": "La rue"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-084120.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190528_121528_172.jpg"
-					,"path": p[5]
+					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190515-123051.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084255.png"
-					,"path": p[5]
+					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"themes":[]
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084253.png"
-					,"path": p[5]
+					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121044.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121032.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121256.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121320.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121327.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121356.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-121303.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084423.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"description":"C'est un espace public, mais j'y vais pas"
 				}
 				,{
 					"media": "imgs/Screenshot_20190528-120855.png"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"lieu":"Rue Langelier"
 				}
 				,{
 					"media": "imgs/IMG_20190522_083745_523.jpg"
-					,"path": p[4]
+					,"path": 4
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084335.png"
-					,"path": p[5]
+					,"path": 5
 					,"description":"journée du drapeau haitien, plein de jeunes, c'est stimulant"
 				}
 				,{
 					"media": "imgs/Screenshot_20190522-084346.png"
-					,"path": p[5]
+					,"path": 5
 					,"description": "fête du drapeau, avec mes amis"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
@@ -580,13 +572,13 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [43,,,7,,]
+			"id": [43,null,null,7,null,null]
 			,"title": "Boulevard Gouin"
 			,"place_type": "street"
 			,"_items": [
 				{
 					"media": "imgs/VID_19931020_005937_355.mp4"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Clip vidéo d'un story Instagram"
 				}
 			]
@@ -598,39 +590,39 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [44,6,9.9,,,]
+			"id": [44,6,9.9,null,null,null]
 			,"title": "Rue anonyme"
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190504_214146_301.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "en marchant vers l'arret de bus"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190515-123041.png"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190504_214238_327.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "j'attends le bus, je suis fatiguée"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190508_131839_076.jpg"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190522_083752_078.jpg"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190518_171404_195.jpg"
-					,"path": p[1]
+					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 			]
@@ -642,13 +634,13 @@ var geojsonData = {
 		}
 		,{"type": "Feature",
 		"properties": {
-			"id": [45,,,,,100]
+			"id": [45,null,null,null,null,100]
 			,"title": "Ruelle"
 			,"place_type": "street"
 			,"_items": [
 				{
 					"media": "imgs/Screenshot_20190522-084204.png"
-					,"path": p[5]
+					,"path": 5
 					,"description":"ruelle réaménagée dans le nord-est"
 				}
 			]
@@ -666,59 +658,59 @@ var geojsonData = {
 			,"_items": [
 				{
 					"media": "imgs/IMG_20190522_083725_272.jpg"
-					,"path": p[2]
+					,"path": 2
 					,"description": "décompresser"
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/IMG_20190506_204552_784.jpg"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/IMG_20190510_151621_129.jpg"
-					,"path": p[3]
+					,"path": 3
 				}
 				,{
 					"media": "imgs/VID_104240219_161920_007.mp4"
-					,"path": p[1]
+					,"path": 1
 				}
 				,{
 					"media": "imgs/IMG_20190522_083810_831.jpg"
-					,"path": p[1]
+					,"path": 1
 				}
 				,{
 					"media": "imgs/VID_77590716_030041_004.mp4"
-					,"path": p[2]
+					,"path": 2
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/Screenshot_20190506-204530.png"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/VID_65380126_133215_941.mp4"
-					,"path": p[5]
+					,"path": 5
 				}
 				,{
 					"media": "imgs/IMG_20190514_112052_377.jpg"
-					,"path": p[4]
+					,"path": 4
 				}
 				,{
 					"media": "imgs/IMG_20190514_112057_223.jpg"
-					,"path": p[4]
+					,"path": 4
 				}
 				,{
 					"media": "imgs/IMG_20190514_112054_962.jpg"
-					,"path": p[4]
+					,"path": 4
 				}
 				,{
 					"media": "imgs/IMG_20190510_151642_438.jpg"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
 					"media": "imgs/VID_19940913_051756_410.mp4"
-					,"path": p[3]
+					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 			]
@@ -729,8 +721,4 @@ var geojsonData = {
 			}
 		}
 	]
-};
-//when including html in JSON, change all double-quotations to single-quotes, here is an online tool for doing this: https://jsfiddle.net/Mottie/ZAHPg/
-//polygons require extra square brackets around coordinate field
-
-//to add: contextualizing data, such as a polygon representing the CdN-NdG borough and other contextualizing geo-features
+}

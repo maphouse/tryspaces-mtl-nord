@@ -1,15 +1,18 @@
 //Layers
-var layerUrl = 'https://api.mapbox.com/styles/v1/{user}/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
-var imageUrl_bw = 'imgs/drawing-4_white.png';
-var imageUrl_color = 'imgs/drawing-4_coloured_credits.png';
-var imageBounds = [[45.6023716076707473, -73.6510221845416027],[45.5831569024521457, -73.6163640421708720]];
-var geojsonLayer;
-var path;
+const layerUrl = 'https://api.mapbox.com/styles/v1/{user}/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
+const imageUrl_bw = 'imgs/drawing-4_white.png';
+const imageUrl_color = 'imgs/drawing-4_coloured_credits.png';
+const imageBounds = [[45.6023716076707473, -73.6510221845416027],[45.5831569024521457, -73.6163640421708720]];
+let geojsonLayer;
 //var imgOverlay = L.imageOverlay(imageUrl, imageBounds).addTo(mymap);// overlay image on basemap
 
+//initialize pathways
+const p = ["places","Sam","Léana","Pierre","Rayan","Liam"]
+//initial pathway always equal to 0 until another is selected by user
+let path = 0;
 
-var whiteTiles = L.tileLayer(
-	layerUrl, {
+
+const whiteTiles = L.tileLayer(layerUrl, {
 		id: 'MapID',
 		attribution: '',
 		opacity: 0,
@@ -74,7 +77,7 @@ var overlays = {
 
 
 //load map options
-maps = {
+let maps = {
 	"Leurs yeux (Affichages photos)": {
 		center:[45.592297, -73.634139],
 		zoom:16,
@@ -84,7 +87,7 @@ maps = {
 		topRight:[45.608733052315095, -73.6102227495604],
 		baselayer:whiteTiles,
 		baseLayers:{"Fond blanc": whiteTiles},
-		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data_images.js",
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/refactor/data/data_images.geojson",
 		overlays:[mentalmap_bw]
 	},
 	"Leurs lieux (Parcours commentés)": {
@@ -102,7 +105,7 @@ maps = {
 			"Mapbox Streets": normal2,
 			"CartoDB": CartoDB_Positron
 		},
-		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data_sons.js"
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/refactor/data/data_sons.geojson"
 	},
 	"Tous": {
 		center:[45.592297, -73.634139],
@@ -153,42 +156,29 @@ for (const key in maps) {
 	}
 }
 
-//add event listeners to dropdown
-for (const key in maps) {
-	if (maps.hasOwnProperty(key)) {
-		const element = document.getElementById("mapdropdown");
-		element.addEventListener("change", function(e) {
-			console.log("change event fired")
-			const value = e.target.value;
-			location.href = '#';
-			document.getElementById('mapid').classList.remove('scroller2');
-			if (!document.getElementById("splash-grid").classList.contains("hide")) {
-				document.getElementById("splash-grid").classList.toggle("hide");
-			}
-			exitX();
-			//loadjscssfile(maps[value].geojson,maps[value].geojson, "js");
-			setTimeout(function(){
-				loadMap(maps[value]);
-				console.log('loading done')
-			},100);
-			loadjscssfile("functions","js/functions.js", "js");
-		});
+//add event listeners to dropdown, which onChange basically launches the app
+
+const element = document.getElementById("mapdropdown");
+element.addEventListener("change", function(e) {
+	console.log("change event fired")
+	const value = e.target.value;
+	location.href = '#';
+	document.getElementById('mapid').classList.remove('scroller2');
+	if (!document.getElementById("splash-grid").classList.contains("hide")) {
+		document.getElementById("splash-grid").classList.toggle("hide");
 	}
-}
-
-
-function fetchData(data){
-    //load the data
-	console.log('fetching data: ',data)
-    fetch(data)
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(json){
-            //create a Leaflet GeoJSON layer and add it to the map
-			return(json)            
-        })
-};
+	exitX();
+	//loadjscssfile(maps[value].geojson,maps[value].geojson, "js");
+	setTimeout(function(){
+		loadMap(maps[value]);
+		console.log('loading done')
+	},100);
+	loadjscssfile("functions","js/functions.js", "js");
+	//fetchJsonObjectFromUrl(undefined);
+	//generateLegend(p.slice(1,6));
+	var timer;
+	var timer_switch = 0;
+});
 
 //function adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss.shtml and https://cleverbeagle.com/blog/articles/tutorial-how-to-load-third-party-scripts-dynamically-in-javascript
 function loadjscssfile(id, filename, filetype){
@@ -238,6 +228,21 @@ function loadjscssfile(id, filename, filetype){
 	*/
 }
 
+function fetchData(url){
+    //load the data
+	console.log('fetching data: ',url)
+    return fetch(url).then(function(response){
+			console.log('response: ',response)
+            return response.json();
+        }).then(function(json){
+            //create a Leaflet GeoJSON layer and add it to the map
+			console.log('json: ',json)
+			return(json)            
+        }).catch(function(error) {
+			console.log("error fetching data: ",error);
+	});
+};
+
 function loadMap(options){
 	try {
 		mymap.remove()
@@ -254,20 +259,29 @@ function loadMap(options){
 			,maxBoundsViscosity: 0.2
 			,layers: [options.baselayer]
 		});
-		// parse json object (var geojsonData, located in data.js) and turn into loadable layer
-		geojsonLayer = L.geoJSON(fetchData(options.data), {style: styleAll, pointToLayer: stylePoints, onEachFeature: displayFeatureProperties});
 		
-		//add layers to map
-		geojsonLayer.addTo(mymap);// add json element to map
-		var lcontrol = L.control.layers(options.baseLayers,overlays,{position:'topleft'});
-		lcontrol.addTo(mymap);
-		//mentalmap_color.addTo(mymap);
-		if (options.overlays) {
-			for (let i = 0; i < options.overlays.length; i++){
-				options.overlays[i].addTo(mymap);
+		fetchData(options.data).then(function(data) {
+			console.log('data: ',data)
+			// parse json object (var geojsonData, located in data.js) and turn into loadable layer
+			geojsonLayer = L.geoJSON(data, {style: styleAll, pointToLayer: stylePoints, onEachFeature: displayFeatureProperties});
+			
+			//add layers to map
+			geojsonLayer.addTo(mymap);// add json element to map
+			var lcontrol = L.control.layers(options.baseLayers,overlays,{position:'topleft'});
+			lcontrol.addTo(mymap);
+			//mentalmap_color.addTo(mymap);
+			if (options.overlays) {
+				for (let i = 0; i < options.overlays.length; i++){
+					options.overlays[i].addTo(mymap);
+				}
 			}
-		}
-		//lcontrol.addTo(mymap);// add basemap legend
+			loadFeatureIDlist(data);
+			addTopListeners();
+			//lcontrol.addTo(mymap);// add basemap legend
+			window.geojsonData = data;
+		}).catch(function(error) {
+			console.log("There was an error loading the fetched data: ",error);
+		});
 	}
 }
 
@@ -308,7 +322,7 @@ function resetPaths(){
 	
 	//reset global path var
 	path = 0;
-	console.log("GLOBAL PATH VAR reset to ",path)
+	console.log("Global path var reset to ",path)
 	resetFeatureStyles()
 }
 

@@ -24,7 +24,7 @@ function fetchJsonObjectFromUrl(id) {
 
 //functions that are not necessary for loading map (but related)
 
-function loadFeatureIDlist() {
+function loadFeatureIDlist(data) {
 	let list = [];
 	for (let path in p){
 		list.push([])
@@ -32,23 +32,26 @@ function loadFeatureIDlist() {
 	console.log("there are ",list.length," paths")
 	newlists = [];
 	for (let j = 0; j < list.length; j++) {
-		for (let i = 0; i < geojsonData.features.length; i++) {
-			if (geojsonData.features[i].properties.id[j] === undefined) {
+		for (let i = 0; i < data.features.length; i++) {
+			if (data.features[i].properties.id[j] === undefined) {
 				continue;
 			} else {
-				list[j].push(geojsonData.features[i].properties.id[j])
+				list[j].push(data.features[i].properties.id[j])
 			}
 		}
 		
 		list[j].sort(function(a, b){return a-b});
 		
+		list[j] = list[j].filter(function(item) {
+			return item !== null;
+		});
+
 		featureIdListMin = Math.min(...list[j])
 		featureIdListMax = Math.max(...list[j])
-	
 		//for export from function, package it all in a new array
 		newlists[j] = [list[j], featureIdListMax, featureIdListMin]
 	}
-	console.log("feature id lists: ",newlists)
+	console.log("newlists: ",newlists)
 	return newlists;
 };
 
@@ -68,13 +71,19 @@ function nav(dir, restart){
 	
 	// loop through i, where i is equal to the number of features
 	for (var i = 0; i < newlists[path][0].length; i++) {
+		//console.log("fetchedId: ",fetchedId)
 		if (fetchedId == newlists[path][0][i]) {
+			console.log("fetchedId: ",fetchedId)
 			// if next feature and reached end of features, OR if restart arg 0 is passed (meaning the user wishes to restart the path)
 			if((dir == 1 && fetchedId == newlists[path][1]) || (restart === 0)){
 				// go to first feature
+				console.log("restart: ",restart)
 				for (var i1 = 0; i1 < geojsonData.features.length; i1++) {
+					console.log("i1: ",i1)
+					console.log("geojsonData.features[i1].properties.id[path]: ",geojsonData.features[i1].properties.id[path])
+					console.log("newlists[path][2]: ",newlists[path][2])
 					if (geojsonData.features[i1].properties.id[path] == newlists[path][2]){
-						console.log("i1 ", i1)
+						console.log("bingo ", i1)
 						pushToHtml(geojsonData.features[i1]);
 						zoom(geojsonData.features[i1], mymap, slidePane);
 						pushIDtoURL(geojsonData.features[i1], mymap);
@@ -133,6 +142,8 @@ function slideshow(imgArray, elementID) {
 	setTimeout("slideshow()", imgDuration);
 }
 
+// 
+
 function pushToHtml(feature) {
 	
 	//print media/theme html IF it exists
@@ -142,7 +153,8 @@ function pushToHtml(feature) {
 	let paths_list = []
 	if (feature.properties._items) {
 		for (let i = 0;i < feature.properties._items.length; i++){
-			paths_list.push(feature.properties._items[i].path)
+			path_name = p[feature.properties._items[i].path]
+			paths_list.push(path_name)
 		}
 		console.log("paths retrieved from geojson feature: ",paths_list)
 	}
@@ -166,6 +178,7 @@ function generateLegend(p) {
 */
 
 function generateHTML(feature,paths) {
+	console.log("GENERATE HTML with paths: ",paths)
 	let html = "<header><div id='paneNavigator'><div class='restart'>&#10226;</div><div class='prevPlace'>&#10132;</div><div class='exitX'>&#10006;</div><div class='nextPlace'>&#10132;</div><div class='projectTitle'><h1>"+feature.properties.title+"</h1></div></div><div class='introContainer'><p>"+((feature.properties.intro) ? feature.properties.intro : '')+"</p><p class='path_tags'>Parcourir avec ... "+chunkify(paths,1)+"</p></div></header><main class='scroller'>"
 	//&#10140; rounded arrow
 	//&#11071; squiggle arrow left
@@ -180,7 +193,8 @@ function generateHTML(feature,paths) {
 		for (let i = 0;i < feature.properties._items.length;i++){
 			let html_feature = '';
 			if (feature.properties._items[i].path){
-				html_feature += String("<div class='contentContainer "+feature.properties._items[i].path+"' id='item"+i+"'>")
+				let path_name = p[feature.properties._items[i].path];
+				html_feature += String("<div class='contentContainer "+path_name+"' id='item"+i+"'>")
 			} else {
 				html_feature += "<div class='contentContainer' id='item"+i+"'>"
 			} if (feature.properties._items[i].media) {
@@ -188,7 +202,8 @@ function generateHTML(feature,paths) {
 			} if (feature.properties._items[i].description) {
 				html_feature += String("<p class='quotation'>"+feature.properties._items[i].description+"</p>")
 			} if (feature.properties._items[i].path) {
-				html_feature += String("<h3>  — "+chunkify([feature.properties._items[i].path],1)+"</h3>")
+				let path_name = p[feature.properties._items[i].path];
+				html_feature += String("<h3>  — "+chunkify([path_name],1)+"</h3>")
 			} if (feature.properties._items[i].caption) {
 				html_feature += String("<p class='caption'>"+feature.properties._items[i].caption+"</p>")
 			} if (feature.properties._items[i].themes) {
@@ -308,8 +323,8 @@ function featureSelect(layer,kw) {
 
 
 function displayFeatureProperties(feature, layer) {
-	console.log("layer ", layer)
-	console.log("feature ", feature)
+	//console.log("layer ", layer)
+	//console.log("feature ", feature)
 	layer.bindPopup("<h4>"+feature.properties.title+"</h4>", {closeButton: false, autoPan: false, offset: L.point(0, -20)});
 	
     layer.on('click', function () {
@@ -336,6 +351,8 @@ function displayFeatureProperties(feature, layer) {
 
 //function that toggles map features styles and clicked tag
 function styleFeatures(layer, element){
+	console.log("layer ", layer)
+	console.log("element ", element)
 	if (element) {
 		kw = element.innerHTML
 		/*
@@ -355,6 +372,7 @@ function styleFeatures(layer, element){
 			let obj = layer._layers[key];
 			let multiplier = 0;
 			for (var key2 in obj.feature.properties._items) {
+				//console.log("looping through arrays contained inside _items property of type object", key2)
 				var item = obj.feature.properties._items[key2]
 				if (item.hasOwnProperty('themes')){
 					//console.log("found 'themes' property")
@@ -372,7 +390,7 @@ function styleFeatures(layer, element){
 					//console.log("found 'themes' property")
 					//console.log("looping through arrays contained inside themes property of type object")
 					//console.log(obj.feature.properties.themes[mediaTheme])
-					if (item.path.includes(kw)){
+					if (p[item.path].includes(kw)){
 						multiplier += 1;
 						var id = obj._leaflet_id;
 						//console.log("object found ",id)
@@ -409,6 +427,7 @@ function chunkify(arrayInput, type) {
 	} else if (type === 1){
 		//persons
 		if (path > 0) {
+			console.log("path: ",path)
 			for (let i=0;i<arrayInput.length;i++) {
 				if (find_path(path) === arrayInput[i]) {
 					console.log("path: ",path)
@@ -728,7 +747,7 @@ function addListeners() {
 			}
 			
 		} catch(error) {
-			console.log('PRINT ERROR ',error)
+			console.log('No more elements to add listeners to')
 			console.log('add eventlisteners break')
 			break;
 		}
@@ -739,12 +758,6 @@ function addListeners() {
 //jquery
 $(document).ready(function() {
     
-	fetchJsonObjectFromUrl(undefined);
-	loadFeatureIDlist();
-	addTopListeners();
-	//generateLegend(p.slice(1,6));
-	var timer;
-	var timer_switch = 0;
 	/*
 	var el = document.getElementById('legend');
 	L.DomEvent.disableScrollPropagation(el);
@@ -762,7 +775,7 @@ $(document).ready(function() {
         }
     });
 	
-	//search function with autofill
+	/*search function with autofill
 	var availableTags = [];
 	for (var i = 0; i < geojsonData.features.length; i++) {
 		availableTags.push(geojsonData.features[i].properties.title)
@@ -779,4 +792,5 @@ $(document).ready(function() {
 			};
 		}
 	});
+	*/
 });
