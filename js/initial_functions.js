@@ -1,7 +1,7 @@
 //Layers
 var layerUrl = 'https://api.mapbox.com/styles/v1/{user}/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}';
-var imageUrl_bw = 'drawing-4_white.png';
-var imageUrl_color = 'drawing-4_coloured_credits.png';
+var imageUrl_bw = 'imgs/drawing-4_white.png';
+var imageUrl_color = 'imgs/drawing-4_coloured_credits.png';
 var imageBounds = [[45.6023716076707473, -73.6510221845416027],[45.5831569024521457, -73.6163640421708720]];
 var geojsonLayer;
 var path;
@@ -73,16 +73,122 @@ var overlays = {
 };
 
 
-
 //load map options
+maps = {
+	"Leurs yeux (Affichages photos)": {
+		center:[45.592297, -73.634139],
+		zoom:16,
+		maxZoom:17,
+		minZoom:15,
+		bottomLeft:[45.57692974974479, -73.65749050375052],
+		topRight:[45.608733052315095, -73.6102227495604],
+		baselayer:whiteTiles,
+		baseLayers:{"Fond blanc": whiteTiles},
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data_images.js",
+		overlays:[mentalmap_bw]
+	},
+	"Leurs lieux (Parcours commentés)": {
+		center:[45.61469199132161, -73.62145777673409],
+		zoom:15,
+		maxZoom:18,
+		minZoom:11,
+		bottomLeft:[45.404355, -73.955570],
+		topRight:[45.702860, -73.476158],
+		baselayer:normal2,
+		baseLayers:{
+			"Satellite avec étiquettes": labels,
+			"Classique": standard,
+			"Normal": normal,
+			"Mapbox Streets": normal2,
+			"CartoDB": CartoDB_Positron
+		},
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data_sons.js"
+	},
+	"Tous": {
+		center:[45.592297, -73.634139],
+		zoom:13,
+		maxZoom:18,
+		minZoom:3,
+		bottomLeft:[45.404355, -73.955570],
+		topRight:[45.702860, -73.476158],
+		baselayer:normal2,
+		data:"data/data_all.js"
+	}
+}
 
-var options1 = {center:[45.592297, -73.634139],zoom:16,maxZoom:17,minZoom:15,bottomLeft:[45.57692974974479, -73.65749050375052],topRight:[45.608733052315095, -73.6102227495604],baselayer:whiteTiles,baseLayers:{"Fond blanc": whiteTiles},geojson:"data_images.js",overlays:[mentalmap_bw]}
+/*add functionality to nav map dropdown
 
-var options2 = {center:[45.61469199132161, -73.62145777673409],zoom:15,maxZoom:18,minZoom:11,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,baseLayers:{"Satellite avec étiquettes": labels,"Classique": standard,"Normal": normal,"Mapbox Streets": normal2,"CartoDB": CartoDB_Positron},geojson:"data_sons.js"}
+const selectDropdown = document.getElementById("mapdropdown");
 
-var options3 = {center:[45.592297, -73.634139],zoom:13,maxZoom:18,minZoom:3,bottomLeft:[45.404355, -73.955570],topRight:[45.702860, -73.476158],baselayer:normal2,geojson:"data_all.js"}
+selectDropdown.addEventListener("change", function(e) {
+	console.log("change event fired")
+    const value = e.target.value;
+    launchMap(value);
+});
+
+function toggleEventListener(action, event, id, callback, ...args) {
+	const element = document.getElementById(id);
+	if (action == "add") {
+		console.log("adding event listener")
+		element.addEventListener(event, function(e){
+			console.log("event listener fired: ",event,e.target)
+			if (args.length > 0) {
+				callback(e.target.value);
+			} else
+				callback();
+		});
+	} else if (action == "remove") {
+		element.removeEventListener(event, callback);
+	}
+};
+*/
+//add options to dropdown
+for (const key in maps) {
+	if (maps.hasOwnProperty(key)) {
+		const element = document.getElementById("mapdropdown");
+		const option = document.createElement("option");
+		option.value = key;
+		option.text = key;
+		element.appendChild(option);
+	}
+}
+
+//add event listeners to dropdown
+for (const key in maps) {
+	if (maps.hasOwnProperty(key)) {
+		const element = document.getElementById("mapdropdown");
+		element.addEventListener("change", function(e) {
+			console.log("change event fired")
+			const value = e.target.value;
+			location.href = '#';
+			document.getElementById('mapid').classList.remove('scroller2');
+			if (!document.getElementById("splash-grid").classList.contains("hide")) {
+				document.getElementById("splash-grid").classList.toggle("hide");
+			}
+			exitX();
+			//loadjscssfile(maps[value].geojson,maps[value].geojson, "js");
+			setTimeout(function(){
+				loadMap(maps[value]);
+				console.log('loading done')
+			},100);
+			loadjscssfile("functions","js/functions.js", "js");
+		});
+	}
+}
 
 
+function fetchData(data){
+    //load the data
+	console.log('fetching data: ',data)
+    fetch(data)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(json){
+            //create a Leaflet GeoJSON layer and add it to the map
+			return(json)            
+        })
+};
 
 //function adapted from http://www.javascriptkit.com/javatutors/loadjavascriptcss.shtml and https://cleverbeagle.com/blog/articles/tutorial-how-to-load-third-party-scripts-dynamically-in-javascript
 function loadjscssfile(id, filename, filetype){
@@ -91,6 +197,7 @@ function loadjscssfile(id, filename, filetype){
 	let existingScript = document.getElementById(id);
 	if (!existingScript){
 		if (filetype=="js"){ //if filename is a external JavaScript file
+			console.log('loading script: ',filename)
 			var fileref=document.createElement('script')
 			fileref.setAttribute("type","text/javascript")
 			fileref.setAttribute("src", filename)
@@ -130,59 +237,38 @@ function loadjscssfile(id, filename, filetype){
 	});
 	*/
 }
+
+function loadMap(options){
+	try {
+		mymap.remove()
+	} catch(e) {
+		console.log(e)
+		console.log("no map to delete")
+	} finally {
+		mymap = L.map('mapid', {
+			center: options.center
+			,zoom: options.zoom
+			,maxZoom: options.maxZoom
+			,minZoom: options.minZoom
+			,maxBounds: L.latLngBounds(options.bottomLeft,options.topRight)
+			,maxBoundsViscosity: 0.2
+			,layers: [options.baselayer]
+		});
+		// parse json object (var geojsonData, located in data.js) and turn into loadable layer
+		geojsonLayer = L.geoJSON(fetchData(options.data), {style: styleAll, pointToLayer: stylePoints, onEachFeature: displayFeatureProperties});
 		
-function launchMap(options) {
-	console.log("map launched");
-	location.href = '#';
-	document.getElementById('mapid').classList.remove('scroller2');
-	exitX();
-	
-	function loadMap(){
-		try {
-			mymap.remove()
-		} catch(e) {
-			console.log(e)
-			console.log("no map to delete")
-		} finally {
-			mymap = L.map('mapid', {
-				center: window[options].center
-				,zoom: window[options].zoom
-				,maxZoom: window[options].maxZoom
-				,minZoom: window[options].minZoom
-				,maxBounds: L.latLngBounds(window[options].bottomLeft,window[options].topRight)
-				,maxBoundsViscosity: 0.2
-				,layers: [window[options].baselayer]
-			});
-			
-			// parse json object (var geojsonData, located in data.js) and turn into loadable layer
-			geojsonLayer = L.geoJSON(geojsonData, {style: styleAll, pointToLayer: stylePoints, onEachFeature: displayFeatureProperties});
-			
-			//add layers to map
-			geojsonLayer.addTo(mymap);// add json element to map
-			var lcontrol = L.control.layers(window[options].baseLayers,overlays,{position:'topleft'});
-			lcontrol.addTo(mymap);
-			//mentalmap_color.addTo(mymap);
-			if (window[options].overlays) {
-				for (let i = 0; i < window[options].overlays.length; i++){
-					window[options].overlays[i].addTo(mymap);
-				}
+		//add layers to map
+		geojsonLayer.addTo(mymap);// add json element to map
+		var lcontrol = L.control.layers(options.baseLayers,overlays,{position:'topleft'});
+		lcontrol.addTo(mymap);
+		//mentalmap_color.addTo(mymap);
+		if (options.overlays) {
+			for (let i = 0; i < options.overlays.length; i++){
+				options.overlays[i].addTo(mymap);
 			}
-			//lcontrol.addTo(mymap);// add basemap legend
 		}
+		//lcontrol.addTo(mymap);// add basemap legend
 	}
-	
-	console.log("load script/css files");
-	loadjscssfile(window[options].geojson,window[options].geojson, "js");
-	loadjscssfile("functions","functions.js", "js");
-	
-	if (!document.getElementById("splash-grid").classList.contains("hide")) {
-		document.getElementById("splash-grid").classList.toggle("hide");
-	}
-	
-	setTimeout(function(){
-		loadMap();
-	},100);
-	console.log('loading done')
 }
 
 function resetFeatureStyles() {
@@ -308,7 +394,7 @@ function slideshow(s){
 	changePic();
 }
 
-let slides=['cover_3.jpg', 'cover_1.jpg', 'cover_2.jpg', 'cover_4.jpg', 'cover_5.jpg', 'cover_6.jpg', 'cover_7.jpg','cover_8.jpg']
+let slides=['imgs/cover_3.jpg', 'imgs/cover_1.jpg', 'imgs/cover_2.jpg', 'imgs/cover_4.jpg', 'imgs/cover_5.jpg', 'imgs/cover_6.jpg', 'imgs/cover_7.jpg','imgs/cover_8.jpg']
 slideshow(slides);
 /*
 

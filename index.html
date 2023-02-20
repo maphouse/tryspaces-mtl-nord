@@ -5,19 +5,19 @@
 		<title>« J'te parle du Nord ! »</title>
 		<link rel="shortcut icon" href="map.ico" type="image/x-icon">
 		<!-- jquery ui styles -->
-		<link rel="stylesheet" href="jquery_style.css">	
+		<link rel="stylesheet" href="css/jquery_style.css">	
 		<!-- link to leaflet styles -->
-		<link rel="stylesheet" type="text/css" href="leaflet/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="lib/leaflet/leaflet.css" />
 		<!-- link to custom styles -->
-		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
 
 		<!-- link to leaflet scripts -->
-		<script type="text/javascript" src="leaflet/leaflet.js"></script>
+		<script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
 		<!-- link to jquery for geojson layer -->
 		<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
 		<!-- load only needed js vars for passing to launchmap function-->
-		<script async type="text/javascript" src="initial_functions.js" defer></script>
+		<script async type="text/javascript" src="js/initial_functions.js" defer></script>
 		
 		
 		<!-- so that IG works properly
@@ -40,14 +40,16 @@
 					<input id="tags" placeholder="Rechercher un lieu">
 				</div>
 			</li>
-			-->
-			<select class="li-nav" name="mapdropdown" id="mapdropdown" onChange="launchMap(this.value);">
+			<select class="li-nav" name="mapdropdown" id="mapdropdown">
 					<option value="map0" selected="selected" disabled>Sélectionner une carte</option>
 					<option value='options1'>Leurs yeux (Affichages photos)</option>
 					<option value='options2'>Leurs lieux (Parcours commentés)</option>
-					<!--<option value='options3'>Tous</option>-->
 			</select>
-			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank"><img id="logo" src="trymontreal.png"></a></li>
+			-->
+			<select class="li-nav" name="mapdropdown" id="mapdropdown">
+					<option selected="selected" disabled>Sélectionner une carte</option>
+			</select>
+			<li class="li-nav"><a href="https://tryspaces.org/montreal/" target="_blank"><img id="logo" src="imgs/trymontreal.png"></a></li>
 		</ul>
 		
 		<div id="leftPane" class="scroller grid-container hide">
@@ -94,33 +96,5 @@
 		</footer>
 	
 	</body>
-<!-- resources
-for getting started
-http://leafletjs.com/examples/quick-start/
-for access token
-https://www.mapbox.com/studio/account/tokens/
-for tilesets(map id)
-https://www.mapbox.com/studio/tilesets/
 
-alternatively, check out
-https://switch2osm.org/using-tiles/getting-started-with-leaflet/
-
-for loading point data from JSON
-https://asmaloney.com/2014/01/code/creating-an-interactive-map-with-leaflet-and-openstreetmap/
-and from GeoJSON (preferable?)
-http://leafletjs.com/examples/geojson/
-all about geoJSON
-http://www.macwright.org/2015/03/23/geojson-second-bite.html
-
-for loading server-side data (geojson preferable for small projects)
-http://gis.stackexchange.com/questions/76319/what-is-the-most-common-way-of-displaying-geodata-from-postgis-on-leaflet
-
-lucas: have map be full screen, slide to half-screen to give way to vignette when placemark is clicked
-
-some js sources (for geojson)
-how to link map to external geojson file https://gis.stackexchange.com/questions/113341/how-do-you-load-a-geojson-file-in-leaflet
-how to connect marker to innerHTML?
-https://stackoverflow.com/questions/26381376/leaflet-oneachfeature-mouseover-update-innerhtml-of-table
-another example of getGEOJSON (like maptime boston) http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way
--->
 </html>
