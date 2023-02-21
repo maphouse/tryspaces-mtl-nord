@@ -87,7 +87,7 @@ let maps = {
 		topRight:[45.608733052315095, -73.6102227495604],
 		baselayer:whiteTiles,
 		baseLayers:{"Fond blanc": whiteTiles},
-		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/refactor/data/data_images.geojson",
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data/data_images.geojson",
 		overlays:[mentalmap_bw]
 	},
 	"Leurs lieux (Parcours commentés)": {
@@ -105,7 +105,7 @@ let maps = {
 			"Mapbox Streets": normal2,
 			"CartoDB": CartoDB_Positron
 		},
-		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/refactor/data/data_sons.geojson"
+		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/main/data/data_sons.geojson"
 	}
 }
 
