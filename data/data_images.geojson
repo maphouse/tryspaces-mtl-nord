@@ -12,22 +12,22 @@
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084021.png"
+					"media": "imgs/Screenshot_20190522-084021.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084535.png"
+					"media": "imgs/Screenshot_20190522-084535.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084138.png"
+					"media": "imgs/Screenshot_20190522-084138.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-083953.png"
+					"media": "imgs/Screenshot_20190522-083953.jpg"
 					,"path": 4
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
@@ -44,7 +44,7 @@
 			,"title": "Centre commercial"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190515-123046.png"
+					"media": "imgs/Screenshot_20190515-123046.jpg"
 					,"path": 1
 				}
 			]
@@ -77,12 +77,12 @@
 			,"title": "Rue Pascale"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-083932.png"
+					"media": "imgs/Screenshot_20190522-083932.jpg"
 					,"path": 4
 					,"description":""
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-083944.png"
+					"media": "imgs/Screenshot_20190522-083944.jpg"
 					,"path": 4
 					,"description":""
 				}
@@ -100,7 +100,7 @@
 			,"title": "Bibliothèque de Montréal-Nord"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-084437.png"
+					"media": "imgs/Screenshot_20190522-084437.jpg"
 					,"path": 3
 					,"description":"de la créativité dans le nord"
 					,"caption":"Capture d'écran d'un affichage Instagram"
@@ -126,7 +126,7 @@
 					,"path": 2
 				}
 				,{
-					"media": ["imgs/Screenshot_20190528-120742.png","imgs/Screenshot_20190528-120758.png"]
+					"media": ["imgs/Screenshot_20190528-120742.jpg","imgs/Screenshot_20190528-120758.jpg"]
 					,"path": 4
 				}
 			]
@@ -149,7 +149,7 @@
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120202.png"
+					"media": "imgs/Screenshot_20190528-120202.jpg"
 					,"path": 3
 					,"description": "Ma cousine qui avait performé une dance chorégraphique"
 					,"caption": "Capture d'écran d'un affichage Instagram"
@@ -160,24 +160,24 @@
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121005.png"
+					"media": "imgs/Screenshot_20190528-121005.jpg"
 					,"path": 1
 					,"description": ""
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190515-123115.png"
+					"media": "imgs/Screenshot_20190515-123115.jpg"
 					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
-					"media": ["imgs/Screenshot_20190528-120934.png","imgs/Screenshot_20190528-120927.png"]
+					"media": ["imgs/Screenshot_20190528-120934.jpg","imgs/Screenshot_20190528-120927.jpg"]
 					,"path": 4
 					,"description": "la bibliothèque c'est l'endroit où je me sens le plus en sécurité"
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
-					"media": ["imgs/Screenshot_20190528-121214.png","imgs/Screenshot_20190528-121233.png","imgs/Screenshot_20190528-121226.png"]
+					"media": ["imgs/Screenshot_20190528-121214.jpg","imgs/Screenshot_20190528-121233.jpg","imgs/Screenshot_20190528-121226.jpg"]
 					,"path": 4
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
@@ -210,7 +210,7 @@
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190602-144247.png"
+					"media": "imgs/Screenshot_20190602-144247.jpg"
 					,"path": 5
 					,"description": ""
 					,"caption": "Capture d'écran d'un story Instagram"
@@ -228,24 +228,24 @@
 			,"title": "École HB"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190607-131601.png"
+					"media": "imgs/Screenshot_20190607-131601.jpg"
 					,"path": 3
 					,"description": "nouveau projet de réaménagement de l'école HB et du parc Hb"
 				}
 				,{
-					"media": ["imgs/Screenshot_20190528-120607.png","imgs/Screenshot_20190528-120638.png"]
+					"media": ["imgs/Screenshot_20190528-120607.jpg","imgs/Screenshot_20190528-120638.jpg"]
 					,"path": 5
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120645.png"
+					"media": "imgs/Screenshot_20190528-120645.jpg"
 					,"path": 5
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084359.png"
+					"media": "imgs/Screenshot_20190522-084359.jpg"
 					,"path": 5
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120624.png"
+					"media": "imgs/Screenshot_20190528-120624.jpg"
 					,"path": 5
 				}
 				,{
@@ -265,7 +265,7 @@
 			,"title": "Soccer"
 			,"_items":[
 				{
-					"media": "imgs/Screenshot_20190528-121114.png"
+					"media": "imgs/Screenshot_20190528-121114.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
@@ -293,7 +293,7 @@
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120843.png"
+					"media": "imgs/Screenshot_20190528-120843.jpg"
 					,"path": 3
 					,"description": "STM"
 					,"caption": "Capture d'écran d'un affichage Instagram"
@@ -328,7 +328,7 @@
 			,"title": "Allo Mon Coco"
 			,"_items": [
 				{
-					"media": ["imgs/Screenshot_20190602-144500.png","imgs/Screenshot_20190602-144407.png","imgs/Screenshot_20190602-144421.png"]
+					"media": ["imgs/Screenshot_20190602-144500.jpg","imgs/Screenshot_20190602-144407.jpg","imgs/Screenshot_20190602-144421.jpg"]
 					,"path": 1
 					,"description": "Date"
 					,"caption": "Capture d'écran d'un affichage Instagram"
@@ -346,12 +346,12 @@
 			,"title": "Cinéma Guzzo"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-084554.png"
+					"media": "imgs/Screenshot_20190522-084554.jpg"
 					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084547.png"
+					"media": "imgs/Screenshot_20190522-084547.jpg"
 					,"path": 1
 					,"caption": "Capture d'écran d'un affichage Instagram"
 				}
@@ -368,27 +368,27 @@
 			,"title": "École Louis Fréchette"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-084635.png"
+					"media": "imgs/Screenshot_20190522-084635.jpg"
 					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190607-131611.png"
+					"media": "imgs/Screenshot_20190607-131611.jpg"
 					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084639.png"
+					"media": "imgs/Screenshot_20190522-084639.jpg"
 					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084608.png"
+					"media": "imgs/Screenshot_20190522-084608.jpg"
 					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120456.png"
+					"media": "imgs/Screenshot_20190528-120456.jpg"
 					,"path": 3
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
@@ -476,7 +476,7 @@
 			,"title": "La rue"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-084120.png"
+					"media": "imgs/Screenshot_20190522-084120.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
@@ -486,64 +486,64 @@
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190515-123051.png"
+					"media": "imgs/Screenshot_20190515-123051.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084255.png"
+					"media": "imgs/Screenshot_20190522-084255.jpg"
 					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"themes":[]
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084253.png"
+					"media": "imgs/Screenshot_20190522-084253.jpg"
 					,"path": 5
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121044.png"
+					"media": "imgs/Screenshot_20190528-121044.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121032.png"
+					"media": "imgs/Screenshot_20190528-121032.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121256.png"
+					"media": "imgs/Screenshot_20190528-121256.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121320.png"
+					"media": "imgs/Screenshot_20190528-121320.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121327.png"
+					"media": "imgs/Screenshot_20190528-121327.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121356.png"
+					"media": "imgs/Screenshot_20190528-121356.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-121303.png"
+					"media": "imgs/Screenshot_20190528-121303.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084423.png"
+					"media": "imgs/Screenshot_20190522-084423.jpg"
 					,"path": 3
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"description":"C'est un espace public, mais j'y vais pas"
 				}
 				,{
-					"media": "imgs/Screenshot_20190528-120855.png"
+					"media": "imgs/Screenshot_20190528-120855.jpg"
 					,"path": 3
 					,"caption": "Capture écran d'un affichage Instagram"
 					,"lieu":"Rue Langelier"
@@ -553,12 +553,12 @@
 					,"path": 4
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084335.png"
+					"media": "imgs/Screenshot_20190522-084335.jpg"
 					,"path": 5
 					,"description":"journée du drapeau haitien, plein de jeunes, c'est stimulant"
 				}
 				,{
-					"media": "imgs/Screenshot_20190522-084346.png"
+					"media": "imgs/Screenshot_20190522-084346.jpg"
 					,"path": 5
 					,"description": "fête du drapeau, avec mes amis"
 					,"caption": "Capture d'écran d'un affichage Instagram"
@@ -600,7 +600,7 @@
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190515-123041.png"
+					"media": "imgs/Screenshot_20190515-123041.jpg"
 					,"path": 1
 					,"caption": "Capture écran d'un affichage Instagram"
 				}
@@ -639,7 +639,7 @@
 			,"place_type": "street"
 			,"_items": [
 				{
-					"media": "imgs/Screenshot_20190522-084204.png"
+					"media": "imgs/Screenshot_20190522-084204.jpg"
 					,"path": 5
 					,"description":"ruelle réaménagée dans le nord-est"
 				}
@@ -684,7 +684,7 @@
 					,"caption": "Capture d'écran d'un story Instagram"
 				}
 				,{
-					"media": "imgs/Screenshot_20190506-204530.png"
+					"media": "imgs/Screenshot_20190506-204530.jpg"
 					,"path": 5
 				}
 				,{
