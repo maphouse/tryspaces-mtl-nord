@@ -638,66 +638,42 @@ function leftSlide() {
 	console.log("map recentered");
 };
 
-function addTopListeners() {
-	//add click listeners to nav controls
-	document.getElementById("leftPane").addEventListener("click", function (e){
-		if (e.target && e.target.matches(".nextPlace")) {
-			nav(1,undefined);
-			console.log("item ", e.target.className, " was clicked!");
-		}
-		if (e.target && e.target.matches(".prevPlace")) {
-			nav(-1,undefined);
-			console.log("item ", e.target.className, " was clicked!");
-		}
-		if (e.target && e.target.matches(".theme_tag")) {
-			styleFeatures(geojsonLayer, e.target);
-			console.log("item ", e.target.className, " was clicked!");
-		}
-		if (e.target && e.target.matches(".path_tag")) {
-			selectPath(e.target);
-			styleFeatures(geojsonLayer, e.target);
-			console.log("item ", e.target.className, " was clicked!");
-			console.log("path ", path, " was clicked!");
-		}
-		if (e.target && e.target.matches(".restart")) {
-			nav(1,0);
-		}
-		if (e.target && e.target.matches(".exitX")) {
-			exitX();
-			console.log("item ", e.target.className, " was clicked!");
-		}
-	});
-	/*
-	document.getElementById("legend").addEventListener("click", function (e){
-		if (e.target && e.target.matches(".theme_tag")) {
-			styleFeatures(geojsonLayer, e.target);
-			console.log("item ", e.target.className, " was clicked!");
-		}
-		if (e.target && e.target.matches(".path_tag")) {
-			selectPath(e.target);
-			console.log("item ", e.target.className, " was clicked!");
-			console.log("path ", path, " was clicked!");
-		}
-	});
-	*/
-	
-
-	/*
-	//add hover listeners to nav controls
-	document.getElementById("leftPane").addEventListener("mouseover", function (e){
-		if (e.target && e.target.matches(".popup")) {
-			popup(e.target.firstChild.id);
-		}
-	});
-	document.getElementById("leftPane").addEventListener("mouseout", function (e){
-		if (e.target && e.target.matches(".popup")) {
-			popup(e.target.firstChild.id);
-		}
-	});
-	*/
-	//add mouseenter/mouseleave listeners to media items
+function clickHandler(e){
+	if (e.target && e.target.matches(".nextPlace")) {
+		nav(1,undefined);
+		console.log("item ", e.target.className, " was clicked!");
+	}
+	if (e.target && e.target.matches(".prevPlace")) {
+		nav(-1,undefined);
+		console.log("item ", e.target.className, " was clicked!");
+	}
+	if (e.target && e.target.matches(".theme_tag")) {
+		styleFeatures(geojsonLayer, e.target);
+		console.log("item ", e.target.className, " was clicked!");
+	}
+	if (e.target && e.target.matches(".path_tag")) {
+		selectPath(e.target);
+		styleFeatures(geojsonLayer, e.target);
+		console.log("item ", e.target.className, " was clicked!");
+		console.log("path ", path, " was clicked!");
+	}
+	if (e.target && e.target.matches(".restart")) {
+		nav(1,0);
+	}
+	if (e.target && e.target.matches(".exitX")) {
+		exitX();
+		console.log("item ", e.target.className, " was clicked!");
+	}
 }
 
+function addTopListeners() {
+	document.getElementById("leftPane").addEventListener("click", clickHandler);
+}
+/*
+function removeTopListeners() {
+	document.getElementById("leftPane").removeEventListener("click", clickHandler);
+}
+*/
 
 //add audio fading https://stackoverflow.com/a/26869192
 

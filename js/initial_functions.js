@@ -106,16 +106,6 @@ let maps = {
 			"CartoDB": CartoDB_Positron
 		},
 		data:"https://raw.githubusercontent.com/maphouse/tryspaces-mtl-nord/refactor/data/data_sons.geojson"
-	},
-	"Tous": {
-		center:[45.592297, -73.634139],
-		zoom:13,
-		maxZoom:18,
-		minZoom:3,
-		bottomLeft:[45.404355, -73.955570],
-		topRight:[45.702860, -73.476158],
-		baselayer:normal2,
-		data:"data/data_all.js"
 	}
 }
 
